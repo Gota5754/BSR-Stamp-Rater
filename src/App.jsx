@@ -25,7 +25,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Getsuga Tangle", weapon_stamp: "Rising Black Moon",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (+30% Crit Rate)", changes: { "Crit Rate %": 0.6 } }]
   },
   {
     id: "kisuke", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom", initials: "KU",
@@ -33,7 +33,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Reishi Analysis", weapon_stamp: "Hidden Wisdom",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (Team Crit DMG)", changes: { "Crit DMG %": 0.6 } }]
   },
   {
     id: "byakuya", name: "Byakuya Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "BY",
@@ -41,7 +41,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Thousand Blade Funeral", weapon_stamp: "Blooming Sakura",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (DPS mode)", changes: { "ATK %": 0.8, "Crit Rate %": 0.9 } }]
   },
   {
     id: "kenpachi", name: "Kenpachi Zaraki", subtitle: null, set_bis: "Ready to Go", initials: "KZ",
@@ -73,7 +73,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.4, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Deadly Venom", weapon_stamp: "Mocking Visage",
-    overrides: null
+    overrides: [{ id: "b2_active", label: "B2 (Ailment boost)", changes: { "Ailment Bonus %": 1.0 } }]
   },
   {
     id: "nelliel", name: "Nelliel", subtitle: "Tu Odelschwanck", set_bis: "Knight's Anthem", initials: "NE",
@@ -81,7 +81,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["ATK %", "Thrust DMG %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.2, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Impale Scale", weapon_stamp: "Knight's Anthem",
-    overrides: null
+    overrides: [{ id: "b2_active", label: "B2 (60% Crit DMG)", changes: { "Crit DMG %": 0.5, "Crit Rate %": 1.0 } }]
   },
   {
     id: "ikkaku", name: "Ikkaku Madarame", subtitle: null, set_bis: "Unyielding Light", initials: "IM",
@@ -89,7 +89,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Dragon Crest", weapon_stamp: "Unyielding Light",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (Bleed+)", changes: { "Ailment Bonus %": 0.6 } }]
   },
   {
     id: "tosen", name: "Kaname Tosen", subtitle: null, set_bis: "Mocking Visage", initials: "KT",
@@ -97,7 +97,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %", "Ultimate Charge Rate %"] },
     weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "Flat ATK": 0.2, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Wound Settlement", weapon_stamp: "Mocking Visage",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (Wound retain)", changes: { "ATK %": 1.0, "Crit Rate %": 0.9 } }]
   },
   {
     id: "yoruichi", name: "Yoruichi Shihoin", subtitle: "Flash Goddess", set_bis: "Shadow in Still Night", initials: "YS",
@@ -105,7 +105,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Lightning Seal", weapon_stamp: "Shadow in Still Night",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (+30% ATK)", changes: { "ATK %": 0.4, "Crit Rate %": 1.0, "Crit DMG %": 1.0 } }]
   },
   {
     id: "komamura", name: "Sajin Komamura", subtitle: null, set_bis: "Inner Fang", initials: "SK",
@@ -113,7 +113,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Build Up", weapon_stamp: "Inner Fang",
-    overrides: null
+    overrides: [{ id: "b1_active", label: "B1 (Strike RES↓)", changes: { "ATK %": 0.8 } }]
   },
   {
     id: "mayuri", name: "Mayuri Kurotsuchi", subtitle: null, set_bis: "???", initials: "MK",
