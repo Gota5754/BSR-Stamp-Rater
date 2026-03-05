@@ -24,6 +24,7 @@ const CHARACTERS = [
     color: "#ff6a00", gradient: "linear-gradient(135deg, #ff6a00, #ee0979)", mal_id: 5,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Getsuga Tangle", weapon_stamp: "Rising Black Moon",
     overrides: null
   },
   {
@@ -31,6 +32,7 @@ const CHARACTERS = [
     color: "#2ecc71", gradient: "linear-gradient(135deg, #2ecc71, #1a5c34)", mal_id: 36,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Reishi Analysis", weapon_stamp: "Hidden Wisdom",
     overrides: null
   },
   {
@@ -38,6 +40,7 @@ const CHARACTERS = [
     color: "#e891cf", gradient: "linear-gradient(135deg, #e891cf, #8e44ad)", mal_id: 24,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Thousand Blade Funeral", weapon_stamp: "Blooming Sakura",
     overrides: null
   },
   {
@@ -45,6 +48,7 @@ const CHARACTERS = [
     color: "#f1c40f", gradient: "linear-gradient(135deg, #f1c40f, #c0392b)", mal_id: 35,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.5, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    core_stamp: "Savage Cleave", weapon_stamp: "Ready to Go",
     overrides: [{ id: "ucr_useless", label: "B2 activé", changes: { "Ultimate Charge Rate %": 0 }, rec_override: { piece_3: ["Ailment DMG Bonus %"] } }]
   },
   {
@@ -52,6 +56,7 @@ const CHARACTERS = [
     color: "#74d4f0", gradient: "linear-gradient(135deg, #74d4f0, #2980b9)", mal_id: 28,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Ice Dragon Reign", weapon_stamp: "World Conquest",
     overrides: [{ id: "b2_active", label: "B2 activé", changes: { "Crit Rate %": 0.7, "Crit DMG %": 1.0 } }]
   },
   {
@@ -59,6 +64,7 @@ const CHARACTERS = [
     color: "#9b59b6", gradient: "linear-gradient(135deg, #9b59b6, #2c3e50)", mal_id: 32,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Before We Realized", weapon_stamp: "Immeasurable Gap",
     overrides: [{ id: "b6_active", label: "B6 activé (Crit ×2)", changes: { "Crit Rate %": 0.9, "Crit DMG %": 1.0 }, rec_override: { piece_2: ["Crit DMG %"] } }]
   },
   {
@@ -66,6 +72,7 @@ const CHARACTERS = [
     color: "#bdc3c7", gradient: "linear-gradient(135deg, #bdc3c7, #5d6d7e)", mal_id: 34,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.4, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    core_stamp: "Deadly Venom", weapon_stamp: "Mocking Visage",
     overrides: null
   },
   {
@@ -73,6 +80,7 @@ const CHARACTERS = [
     color: "#1abc9c", gradient: "linear-gradient(135deg, #1abc9c, #16a085)", mal_id: 2512,
     recommended_main_stats: { piece_1: ["ATK %", "Thrust DMG %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.2, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    core_stamp: "Impale Scale", weapon_stamp: "Knight's Anthem",
     overrides: null
   },
   {
@@ -80,6 +88,7 @@ const CHARACTERS = [
     color: "#e74c3c", gradient: "linear-gradient(135deg, #e74c3c, #c0392b)", mal_id: 38,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    core_stamp: "Dragon Crest", weapon_stamp: "Unyielding Light",
     overrides: null
   },
   {
@@ -87,6 +96,7 @@ const CHARACTERS = [
     color: "#8e44ad", gradient: "linear-gradient(135deg, #8e44ad, #2c3e50)", mal_id: 47,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %", "Ultimate Charge Rate %"] },
     weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "Flat ATK": 0.2, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Wound Settlement", weapon_stamp: "Mocking Visage",
     overrides: null
   },
   {
@@ -94,6 +104,7 @@ const CHARACTERS = [
     color: "#d4a017", gradient: "linear-gradient(135deg, #d4a017, #6c3483)", mal_id: 30,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Lightning Seal", weapon_stamp: "Shadow in Still Night",
     overrides: null
   },
   {
@@ -101,6 +112,7 @@ const CHARACTERS = [
     color: "#b8860b", gradient: "linear-gradient(135deg, #b8860b, #8b4513)", mal_id: 29,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Build Up", weapon_stamp: "Inner Fang",
     overrides: null
   },
   {
@@ -117,6 +129,37 @@ const STAMP_SLOTS = {
   piece_1: { label: "Stamp I", main_stats: ["Thrust DMG %", "Spirit DMG %", "Strike DMG %", "Slash DMG %", "ATK", "HP", "DEF", "ATK %", "HP %", "DEF %"] },
   piece_2: { label: "Stamp II", main_stats: ["Crit Rate %", "Crit DMG %", "ATK", "HP", "ATK %", "HP %", "DEF %"] },
   piece_3: { label: "Stamp III", main_stats: ["Ultimate Charge Rate %", "Ailment DMG Bonus %", "ATK", "DEF", "ATK %", "HP %", "DEF %"] }
+};
+
+const LANG = {
+  fr: {
+    character: "Personnage", piece: "Pièce", recommended: "Recommandé",
+    mainStat: "Main Stat", substats: "Substats", compare: "Comparer",
+    close: "Fermer", reset: "Réinitialiser", choose: "— Choisir —",
+    substatN: "— Substat", procs_title: "Procs (Niv 10 / 15 / 20)",
+    procs_note: "Niv 25 : toutes les substats reçoivent un proc",
+    winner: "WINNER", priority: "Priorité des substats",
+    coming_soon: "Coming Soon",
+    coming_soon_text: (name) => `Les stats de ${name} ne sont pas encore disponibles. Les poids seront ajoutés dès la sortie du personnage.`,
+    wins: (label, a, b) => `★ ${label} l'emporte — ${a} vs ${b} pts`,
+    tie: "Égalité parfaite !",
+    core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
+    lvl: "Niv",
+  },
+  en: {
+    character: "Character", piece: "Piece", recommended: "Recommended",
+    mainStat: "Main Stat", substats: "Substats", compare: "Compare",
+    close: "Close", reset: "Reset", choose: "— Select —",
+    substatN: "— Substat", procs_title: "Procs (Lv 10 / 15 / 20)",
+    procs_note: "Lv 25: all substats receive a proc",
+    winner: "WINNER", priority: "Substat priority",
+    coming_soon: "Coming Soon",
+    coming_soon_text: (name) => `Stats for ${name} are not yet available. Weights will be added on release.`,
+    wins: (label, a, b) => `★ ${label} wins — ${a} vs ${b} pts`,
+    tie: "Perfect tie!",
+    core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
+    lvl: "Lv",
+  }
 };
 
 const ALL_SUBSTATS = ["ATK", "HP", "DEF", "ATK %", "HP %", "DEF %", "Crit Rate %", "Crit DMG %", "Ultimate Charge Rate %", "Ailment Bonus %"];
@@ -196,6 +239,16 @@ if (typeof document !== "undefined" && !document.getElementById(styleId)) {
     .bsr-card:hover { transform: translateY(-2px); }
     .bsr-charCard { transition: all 0.25s ease !important; cursor: pointer; }
     .bsr-charCard:hover { transform: translateY(-4px) scale(1.02); }
+    @media (max-width: 600px) {
+      .bsr-charGrid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+      .bsr-stampCards { flex-direction: column !important; }
+      .bsr-header h1 { font-size: 22px !important; }
+      .bsr-slotBtns { gap: 6px !important; }
+      .bsr-slotBtns button { font-size: 11px !important; padding: 10px 0 !important; }
+    }
+    @media (max-width: 400px) {
+      .bsr-charGrid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
   `;
   document.head.appendChild(style);
 }
@@ -312,7 +365,7 @@ function CharCard({ character, isActive, onClick, imgUrl, t }) {
 }
 
 // ─── STAMP CARD ─────────────────────────────────────────────────────────
-function StampCard({ label, character, slot, weights, stamp, setStamp, score, t, isWinner, ov }) {
+function StampCard({ label, character, slot, weights, stamp, setStamp, score, t, isWinner, ov, L }) {
   const { mainStat, substats, procs = ["", "", ""] } = stamp;
   const sd = STAMP_SLOTS[slot];
   const mc = checkMainStat(character, slot, mainStat, ov);
@@ -348,15 +401,15 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
     }}>
       <div style={{ position: "absolute", top: 0, left: 20, right: 20, height: 2, background: `linear-gradient(90deg, transparent, ${cc}44, transparent)` }} />
       {isWinner && (
-        <div style={{ position: "absolute", top: 14, right: 14, background: `linear-gradient(135deg, ${cc}, ${cc}cc)`, color: "#fff", fontSize: 10, fontWeight: 800, padding: "4px 12px", borderRadius: 8, letterSpacing: 1, fontFamily: "'Outfit'", animation: "bsr-pulse 2s infinite" }}>★ WINNER</div>
+        <div style={{ position: "absolute", top: 14, right: 14, background: `linear-gradient(135deg, ${cc}, ${cc}cc)`, color: "#fff", fontSize: 10, fontWeight: 800, padding: "4px 12px", borderRadius: 8, letterSpacing: 1, fontFamily: "'Outfit'", animation: "bsr-pulse 2s infinite" }}>★ {L.winner}</div>
       )}
       <div style={{ fontFamily: "'Outfit'", fontSize: 12, fontWeight: 700, color: t.text2, marginBottom: 20, textTransform: "uppercase", letterSpacing: 3 }}>{label}</div>
       <div style={{ marginBottom: 20 }}>
-        <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 6, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>Main Stat</div>
+        <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 6, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>{L.mainStat}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ position: "relative", flex: 1 }}>
             <select value={mainStat} onChange={e => setStamp({ ...stamp, mainStat: e.target.value })} style={selStyle(!!mainStat)}>
-              <option value="" style={{ background: t.sel }}>— Choisir —</option>
+              <option value="" style={{ background: t.sel }}>{L.choose}</option>
               {sd.main_stats.map(s => <option key={s} value={s} style={{ background: t.sel }}>{s}</option>)}
             </select>
             {chevron}
@@ -366,7 +419,7 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
         </div>
       </div>
       <div style={{ marginBottom: 24 }}>
-        <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>Substats</div>
+        <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>{L.substats}</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {substats.map((sub, i) => {
             const w = sub ? (weights[sub] ?? 0) : -1;
@@ -375,7 +428,7 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, animation: `bsr-fadein 0.3s ease ${i * 0.05}s both` }}>
                 <div style={{ position: "relative", flex: 1 }}>
                   <select value={sub} onChange={e => { const n = [...substats]; n[i] = e.target.value; const np = (procs || ["", "", ""]).map(p => n.includes(p) ? p : ""); setStamp({ ...stamp, substats: n, procs: np }); }} style={selStyle(!!sub)}>
-                    <option value="" style={{ background: t.sel }}>— Substat {i + 1} —</option>
+                    <option value="" style={{ background: t.sel }}>{L.substatN} {i + 1} —</option>
                     {avail(i).map(s => <option key={s} value={s} style={{ background: t.sel }}>{s}</option>)}
                   </select>
                   {chevron}
@@ -390,19 +443,19 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
       </div>
       {allSubsFilled && (
         <div style={{ marginBottom: 24 }}>
-          <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>Procs (Niv 10 / 15 / 20)</div>
+          <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5 }}>{L.procs_title}</div>
           <div style={{ display: "flex", gap: 6 }}>
             {procs.map((proc, i) => (
               <div key={i} style={{ position: "relative", flex: 1 }}>
                 <select value={proc} onChange={e => { const n = [...procs]; n[i] = e.target.value; setStamp({ ...stamp, procs: n }); }} style={{ ...selStyle(!!proc), fontSize: 11, padding: "8px 28px 8px 8px" }}>
-                  <option value="" style={{ background: t.sel }}>Niv {[10, 15, 20][i]}</option>
+                  <option value="" style={{ background: t.sel }}>{L.lvl} {[10, 15, 20][i]}</option>
                   {substats.filter(s => s !== "").map(s => <option key={s} value={s} style={{ background: t.sel }}>{s}</option>)}
                 </select>
                 {chevron}
               </div>
             ))}
           </div>
-          <div style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text3, marginTop: 4, fontStyle: "italic" }}>Niv 25 : toutes les substats reçoivent un proc</div>
+          <div style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text3, marginTop: 4, fontStyle: "italic" }}>{L.procs_note}</div>
         </div>
       )}
       {hasInput && score > 0 && (
@@ -412,7 +465,7 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
       )}
       {hasInput && (
         <div style={{ textAlign: "center", marginTop: 12 }}>
-          <button onClick={() => setStamp({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""] })} style={{ background: "none", border: "none", color: t.text3, fontSize: 11, cursor: "pointer", fontFamily: "'Outfit'", textDecoration: "underline", textUnderlineOffset: 3, padding: "4px 12px" }}>Réinitialiser</button>
+          <button onClick={() => setStamp({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""] })} style={{ background: "none", border: "none", color: t.text3, fontSize: 11, cursor: "pointer", fontFamily: "'Outfit'", textDecoration: "underline", textUnderlineOffset: 3, padding: "4px 12px" }}>{L.reset}</button>
         </div>
       )}
     </div>
@@ -436,6 +489,8 @@ function WBar({ stat, weight, max, cc, t }) {
 // ─── APP ─────────────────────────────────────────────────────────────────
 export default function App() {
   const [mode, setMode] = useState("dark");
+  const [lang, setLang] = useState("fr");
+  const L = LANG[lang];
   const [charId, setCharId] = useState("");
   const [slot, setSlot] = useState("piece_1");
   const [ov, setOv] = useState({});
@@ -464,15 +519,18 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 28, paddingBottom: 4 }}>
           <div>
             <div style={{ fontSize: 9, letterSpacing: 5, textTransform: "uppercase", color: t.text3, fontWeight: 700 }}>Bleach: Soul Resonance</div>
-            <h1 style={{ fontFamily: "'Outfit'", fontSize: 28, fontWeight: 900, margin: "4px 0 0", letterSpacing: -1, color: t.titleColor }}>Set Stamp Rater</h1>
+            <h1 className="bsr-header" style={{ fontFamily: "'Outfit'", fontSize: 28, fontWeight: 900, margin: "4px 0 0", letterSpacing: -1, color: t.titleColor }}>Set Stamp Rater</h1>
           </div>
-          <button onClick={() => setMode(m => m === "dark" ? "light" : "dark")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>{t.icon}</button>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button onClick={() => setLang(l => l === "fr" ? "en" : "fr")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 13, fontWeight: 800, fontFamily: "'Outfit'", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s", color: t.text2 }}>{lang === "fr" ? "EN" : "FR"}</button>
+            <button onClick={() => setMode(m => m === "dark" ? "light" : "dark")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>{t.icon}</button>
+          </div>
         </div>
 
         {/* CHARACTER GRID */}
         <div style={{ marginTop: 24, marginBottom: 24 }}>
-          <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 }}>Personnage</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 }}>
+          <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 }}>{L.character}</div>
+          <div className="bsr-charGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 }}>
             {CHARACTERS.map(c => (
               <CharCard key={c.id} character={c} isActive={charId === c.id} onClick={() => setCharId(c.id)} imgUrl={images[c.id]} t={t} />
             ))}
@@ -496,8 +554,8 @@ export default function App() {
             </div>
             <div style={{ background: t.card, border: `1px solid ${t.cardBorder}`, borderRadius: 20, padding: "60px 24px", textAlign: "center" }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>🚧</div>
-              <div style={{ fontFamily: "'Outfit'", fontSize: 22, fontWeight: 900, color: ch.color, marginBottom: 8 }}>Coming Soon</div>
-              <div style={{ fontFamily: "'Outfit'", fontSize: 13, color: t.text2, lineHeight: 1.6 }}>Les stats de {ch.name} ne sont pas encore disponibles.<br/>Les poids seront ajoutés dès la sortie du personnage.</div>
+              <div style={{ fontFamily: "'Outfit'", fontSize: 22, fontWeight: 900, color: ch.color, marginBottom: 8 }}>{L.coming_soon}</div>
+              <div style={{ fontFamily: "'Outfit'", fontSize: 13, color: t.text2, lineHeight: 1.6 }}>{L.coming_soon_text(ch.name)}</div>
             </div>
           </div>
         ) : ch && (
@@ -517,13 +575,19 @@ export default function App() {
                   {ch.subtitle && <span style={{ fontSize: 12, color: t.text2, fontStyle: "italic" }}>{ch.subtitle}</span>}
                   <span style={{ fontFamily: "'Outfit'", background: `${ch.color}15`, color: ch.color, fontSize: 10, padding: "3px 10px", borderRadius: 8, fontWeight: 800, letterSpacing: 0.5 }}>{ch.set_bis}</span>
                 </div>
+                {ch.core_stamp && (
+                  <div style={{ display: "flex", gap: 12, marginTop: 8, flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text2 }}>🎯 {L.core_stamp}: <strong style={{ color: t.text }}>{ch.core_stamp}</strong></span>
+                    <span style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text2 }}>⚔️ {L.weapon_stamp}: <strong style={{ color: t.text }}>{ch.weapon_stamp}</strong></span>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* SLOT */}
             <div style={{ marginBottom: 16 }}>
-              <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 }}>Pièce</div>
-              <div style={{ display: "flex", gap: 8 }}>
+              <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 }}>{L.piece}</div>
+              <div className="bsr-slotBtns" style={{ display: "flex", gap: 8 }}>
                 {Object.entries(STAMP_SLOTS).map(([k, v]) => {
                   const a = slot === k;
                   return (
@@ -532,7 +596,7 @@ export default function App() {
                 })}
               </div>
               <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, marginTop: 8 }}>
-                ✦ Recommandé : {getEffectiveRecs(ch, slot, ov).join(" / ")}
+                ✦ {L.recommended} : {getEffectiveRecs(ch, slot, ov).join(" / ")}
               </div>
             </div>
 
@@ -553,28 +617,28 @@ export default function App() {
 
             {/* COMPARE */}
             <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
-              <button onClick={() => { setCmp(!cmp); setSB({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""] }); }} style={{ fontFamily: "'Outfit'", background: cmp ? `${ch.color}10` : t.input, border: `1px solid ${cmp ? `${ch.color}44` : t.cardBorder}`, borderRadius: 10, padding: "9px 18px", fontSize: 12, cursor: "pointer", color: cmp ? ch.color : t.text2, fontWeight: 800, transition: "all 0.2s" }}>{cmp ? "✕ Fermer" : "⇔ Comparer"}</button>
+              <button onClick={() => { setCmp(!cmp); setSB({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""] }); }} style={{ fontFamily: "'Outfit'", background: cmp ? `${ch.color}10` : t.input, border: `1px solid ${cmp ? `${ch.color}44` : t.cardBorder}`, borderRadius: 10, padding: "9px 18px", fontSize: 12, cursor: "pointer", color: cmp ? ch.color : t.text2, fontWeight: 800, transition: "all 0.2s" }}>{cmp ? `✕ ${L.close}` : `⇔ ${L.compare}`}</button>
             </div>
 
             {/* STAMP CARDS */}
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <StampCard label="Stamp A" character={ch} slot={slot} weights={w} stamp={sA} setStamp={setSA} score={scA} t={t} isWinner={win === "a"} ov={ov} />
-              {cmp && <StampCard label="Stamp B" character={ch} slot={slot} weights={w} stamp={sB} setStamp={setSB} score={scB} t={t} isWinner={win === "b"} ov={ov} />}
+            <div className="bsr-stampCards" style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <StampCard label="Stamp A" character={ch} slot={slot} weights={w} stamp={sA} setStamp={setSA} score={scA} t={t} isWinner={win === "a"} ov={ov} L={L} />
+              {cmp && <StampCard label="Stamp B" character={ch} slot={slot} weights={w} stamp={sB} setStamp={setSB} score={scB} t={t} isWinner={win === "b"} ov={ov} L={L} />}
             </div>
 
             {/* COMPARISON RESULT */}
             {win && (
               <div style={{ textAlign: "center", marginTop: 16, padding: "14px 20px", fontFamily: "'Outfit'", background: t.card, borderRadius: 14, border: `1px solid ${t.cardBorder}`, fontSize: 14, fontWeight: 800, backdropFilter: "blur(24px)" }}>
                 {win === "tie"
-                  ? <span style={{ color: t.text2 }}>Égalité parfaite</span>
-                  : <span style={{ color: ch.color }}>★ {win === "a" ? "Stamp A" : "Stamp B"} l'emporte — {win === "a" ? scA : scB} vs {win === "a" ? scB : scA} pts</span>
+                  ? <span style={{ color: t.text2 }}>{L.tie}</span>
+                  : <span style={{ color: ch.color }}>{L.wins(win === "a" ? "Stamp A" : "Stamp B", win === "a" ? scA : scB, win === "a" ? scB : scA)}</span>
                 }
               </div>
             )}
 
             {/* WEIGHTS */}
             <div style={{ marginTop: 28, padding: "20px 24px", background: t.card, backdropFilter: "blur(24px)", borderRadius: 18, border: `1px solid ${t.cardBorder}` }}>
-              <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 14, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2 }}>Priorité des substats</div>
+              <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginBottom: 14, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2 }}>{L.priority}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {Object.entries(w).sort(([, a], [, b]) => b - a).map(([s, wt]) => (
                   <WBar key={s} stat={s} weight={wt} max={mx} cc={ch.color} t={t} />
