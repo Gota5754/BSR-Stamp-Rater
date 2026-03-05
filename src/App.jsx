@@ -25,7 +25,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Getsuga Tangle", weapon_stamp: "Rising Black Moon",
-
+    overrides: null
   },
   {
     id: "kisuke", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom", initials: "KU",
@@ -33,6 +33,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Reishi Analysis", weapon_stamp: "Hidden Wisdom",
+    overrides: null
   },
   {
     id: "byakuya", name: "Byakuya Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "BY",
@@ -75,7 +76,7 @@ const CHARACTERS = [
     overrides: [{ id: "b2_active", label: "B2 (Ailment boost)", changes: { "Ailment Bonus %": 1.0 } }]
   },
   {
-    id: "nelliel", name: "Nelliel", set_bis: "Knight's Anthem", initials: "NE",
+    id: "nelliel", name: "Nelliel", subtitle: "Tu Odelschwanck", set_bis: "Knight's Anthem", initials: "NE",
     color: "#1abc9c", gradient: "linear-gradient(135deg, #1abc9c, #16a085)", mal_id: 2512,
     recommended_main_stats: { piece_1: ["ATK %", "Thrust DMG %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %", "Ailment DMG Bonus %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.2, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
@@ -104,6 +105,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Lightning Seal", weapon_stamp: "Shadow in Still Night",
+    overrides: null
   },
   {
     id: "komamura", name: "Sajin Komamura", subtitle: null, set_bis: "Inner Fang", initials: "SK",
@@ -122,6 +124,21 @@ const CHARACTERS = [
     coming_soon: true
   }
 ];
+
+const CHAR_GUIDES = {
+  ichigo_bankai: { fr: 'Au-delà de 100% Crit Rate, chaque 1% excédentaire se convertit en 2% Crit DMG (passif niv 3). Empiler du Crit Rate est donc doublement rentable.', en: 'Above 100% Crit Rate, every 1% excess converts to 2% Crit DMG (passive lv3). Stacking Crit Rate is doubly efficient.' },
+  kisuke: { fr: 'Kisuke buff le Crit DMG de toute l\'équipe via Reishi Analysis. Maximiser son propre Crit DMG amplifie ce buff pour tous.', en: 'Kisuke buffs the whole team\'s Crit DMG via Reishi Analysis. Maximizing his own Crit DMG amplifies this buff for everyone.' },
+  byakuya: { fr: 'Byakuya est avant tout un buffer off-field Slash. L\'UCR est sa stat reine pour spam son Battlefield Skill.', en: 'Byakuya is primarily an off-field Slash buffer. UCR is his top stat to spam his Battlefield Skill.' },
+  kenpachi: { fr: 'Kenpachi scale énormément sur le Crit et l\'Ailment. À B2, l\'UCR perd en priorité car l\'ailment buff son Crit Rate.', en: 'Kenpachi scales heavily on Crit and Ailment. At B2, UCR loses priority as ailment buffs his Crit Rate.' },
+  toshiro: { fr: 'Toshiro est un burst DPS Spirit. À B2, son Crit Rate est buff naturellement, donc Crit DMG et ATK% prennent le dessus.', en: 'Toshiro is a Spirit burst DPS. At B2, his Crit Rate is naturally buffed, so Crit DMG and ATK% take priority.' },
+  aizen: { fr: 'Aizen est le meilleur tactic universel. À B6, son Crit Rate est presque cap grâce au passif x2, il faut maximiser le Crit DMG.', en: 'Aizen is the best universal tactic. At B6, his Crit Rate is nearly capped via the x2 passive, so maximize Crit DMG.' },
+  gin: { fr: 'Gin excelle dans les dégâts d\'altération (poison). Crit et Ailment sont ses deux piliers. À B2, l\'Ailment passe devant tout.', en: 'Gin excels at ailment damage (poison). Crit and Ailment are his two pillars. At B2, Ailment surpasses everything.' },
+  nelliel: { fr: 'Nelliel est DPS + support hybride. Son B2 lui donne ~60% uptime Crit DMG, mais empiler davantage reste toujours excellent.', en: 'Nelliel is a hybrid DPS + support. Her B2 gives ~60% Crit DMG uptime, but stacking more is always excellent.' },
+  ikkaku: { fr: 'Ikkaku est un DPS Thrust basé sur le Bleed. UCR est prioritaire pour spam son ultime. À B1, l\'Ailment prend plus de valeur.', en: 'Ikkaku is a Thrust DPS based on Bleed. UCR is priority for ulti spam. At B1, Ailment gains more value.' },
+  tosen: { fr: 'Tosen est le cœur des comps Wound/Bleed. L\'ATK% est sa stat reine car tout son kit scale sur l\'ATK. À B1, les Wounds se conservent mieux.', en: 'Tosen is the core of Wound/Bleed comps. ATK% is his top stat since his whole kit scales on ATK. At B1, Wounds retain better.' },
+  yoruichi: { fr: 'Yoruichi est la meilleure DPS Strike standard. Son kit dépend entièrement du Crit Rate, Crit DMG et ATK %.', en: 'Yoruichi is the best standard Strike DPS. Her kit depends entirely on Crit Rate, Crit DMG and ATK%.' },
+  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' }
+};
 
 const STAMP_SLOTS = {
   piece_1: { label: "Stamp I", main_stats: ["Thrust DMG %", "Spirit DMG %", "Strike DMG %", "Slash DMG %", "ATK", "HP", "DEF", "ATK %", "HP %", "DEF %"] },
@@ -198,6 +215,7 @@ function getEffectiveRecs(char, slot, ov) {
   if (char.overrides && ov) char.overrides.forEach(o => { if (ov[o.id] && o.rec_override && o.rec_override[slot]) recs = o.rec_override[slot]; });
   return recs;
 }
+
 
 function checkMainStat(char, slot, ms, ov) {
   if (!ms || !char) return null;
@@ -520,7 +538,7 @@ export default function App() {
             <h1 className="bsr-header" style={{ fontFamily: "'Outfit'", fontSize: 28, fontWeight: 900, margin: "4px 0 0", letterSpacing: -1, color: t.titleColor }}>Set Stamp Rater</h1>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
-            <button onClick={() => setLang(l => l === "fr" ? "en" : "fr")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 13, fontWeight: 800, fontFamily: "'Outfit'", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s", color: t.text2 }}>{lang === "fr" ? "EN" : "FR"}</button>
+            <button onClick={() => setLang(l => l === "fr" ? "en" : "fr")} style={{ height: 44, padding: "0 14px", borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 13, fontWeight: 800, fontFamily: "'Outfit'", display: "flex", alignItems: "center", justifyContent: "center", gap: 4, transition: "all 0.3s", color: t.text2 }}>{lang === "fr" ? "🇫🇷 FR" : "🇬🇧 EN"}</button>
             <button onClick={() => setMode(m => m === "dark" ? "light" : "dark")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>{t.icon}</button>
           </div>
         </div>
@@ -579,6 +597,11 @@ export default function App() {
                     <span style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text2 }}>⚔️ {L.weapon_stamp}: <strong style={{ color: t.text }}>{ch.weapon_stamp}</strong></span>
                   </div>
                 )}
+                {CHAR_GUIDES[ch.id] && (
+                  <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginTop: 8, lineHeight: 1.5, fontStyle: "italic", borderLeft: `2px solid ${ch.color}33`, paddingLeft: 10 }}>
+                    💡 {CHAR_GUIDES[ch.id][lang]}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -613,8 +636,8 @@ export default function App() {
               </div>
             )}
 
-            {/* COMPARE */}
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
+            {/* COMPARE + SHARE */}
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginBottom: 16 }}>
               <button onClick={() => { setCmp(!cmp); setSB({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""] }); }} style={{ fontFamily: "'Outfit'", background: cmp ? `${ch.color}10` : t.input, border: `1px solid ${cmp ? `${ch.color}44` : t.cardBorder}`, borderRadius: 10, padding: "9px 18px", fontSize: 12, cursor: "pointer", color: cmp ? ch.color : t.text2, fontWeight: 800, transition: "all 0.2s" }}>{cmp ? `✕ ${L.close}` : `⇔ ${L.compare}`}</button>
             </div>
 
