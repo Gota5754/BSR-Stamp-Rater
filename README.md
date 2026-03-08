@@ -77,33 +77,9 @@ Analysez vos substats, comparez vos stamps et optimisez vos builds.
 
 ---
 
-## Déploiement
-
-### Dev local
-
-```bash
-npm install
-npm run dev
-```
-
-### Build de production
-
-```bash
-npm run build
-```
-
-### Déploiement sur Vercel
-
-1. Push ce repo sur GitHub
-2. Connecte le repo sur [vercel.com](https://vercel.com)
-3. Vercel détecte Vite automatiquement → Deploy
-4. Chaque `git push` redéploie automatiquement
-
----
-
 ## Contribuer
 
-Les retours sur les poids des stats sont les bienvenus ! Si vous avez des suggestions de personnages à ajouter ou des ajustements à proposer, ouvrez une issue ou contactez-moi sur Discord.
+Les retours sur les poids des stats sont les bienvenus ! Si vous avez des suggestions de personnages à ajouter ou des ajustements à proposer, ouvrez une issue ou contactez-moi sur Discord @Gota57
 
 ---
 
