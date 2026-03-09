@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 // ─── EMBEDDED CHARACTER IMAGES (base64) ─────────────────────────────────
 const EMBEDDED_IMAGES = {
@@ -310,6 +310,32 @@ const ALL_PASSIVES = [
   "Invigorate - Support", "Restrain",
 ];
 
+// ─── WEAPON STAMP LEVELS (A0-A5) — Fill per character as data becomes available ────
+const WEAPON_LEVELS = {
+  ichigo_bankai: {
+    label: "Weapon Stamp",
+    levels: [
+      { id: "a0", label: "A0", changes: {} },
+      { id: "a1", label: "A1", changes: {} },
+      { id: "a3", label: "A3", changes: {} },
+      { id: "a5", label: "A5", changes: {} },
+    ]
+  },
+  // Add other characters as data becomes available
+};
+
+// ─── PASSIVE SKILL LEVELS — Fill per character as data becomes available ────
+const PASSIVE_LEVELS = {
+  nelliel: {
+    label: "Passive Lv",
+    levels: [
+      { id: "p1", label: "Lv1", changes: {} },
+      { id: "p3", label: "Lv3", changes: {} },
+    ]
+  },
+  // Add other characters as data becomes available
+};
+
 const STAMP_SLOTS = {
   piece_1: { label: "Stamp I", main_stats: ["Thrust DMG %", "Spirit DMG %", "Strike DMG %", "Slash DMG %", "ATK", "HP", "DEF", "ATK %", "HP %", "DEF %"] },
   piece_2: { label: "Stamp II", main_stats: ["Crit Rate %", "Crit DMG %", "ATK", "HP", "ATK %", "HP %", "DEF %"] },
@@ -329,7 +355,7 @@ const LANG = {
     wins: (label, a, b) => `★ ${label} l'emporte — ${a} vs ${b} pts`,
     tie: "Égalité parfaite !",
     core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
-    lvl: "Niv", passive_title: "Passif 6★", passive_none: "— Aucun passif —", _lang: "fr", pick_char: "Choisis un personnage pour commencer", filter_all: "Tous", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Score du Set complet", full_set_btn: "📊 Set complet", full_set_close: "Retour au stamp", full_set_avg: "Moyenne", full_set_rank: "Rank du Set", support_text: "Soutenir le projet", support_footer: "Si cet outil vous est utile, pensez à soutenir le développeur",
+    lvl: "Niv", passive_title: "Passif 6★", passive_none: "— Aucun passif —", _lang: "fr", pick_char: "Choisis un personnage pour commencer", filter_all: "Tous", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Score du Set complet", full_set_btn: "📊 Set complet", full_set_close: "Retour au stamp", full_set_avg: "Moyenne", full_set_rank: "Rank du Set", support_text: "Soutenir le projet", support_footer: "Si cet outil vous est utile, pensez à soutenir le développeur", weapon_level: "Weapon Stamp", passive_level: "Passif", coming_data: "Données à venir",
   },
   en: {
     character: "Character", piece: "Piece", recommended: "Recommended",
@@ -343,7 +369,7 @@ const LANG = {
     wins: (label, a, b) => `★ ${label} wins — ${a} vs ${b} pts`,
     tie: "Perfect tie!",
     core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
-    lvl: "Lv", passive_title: "6★ Passive", passive_none: "— No passive —", _lang: "en", pick_char: "Pick a character to get started", filter_all: "All", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Full Set Score", full_set_btn: "📊 Full Set", full_set_close: "Back to stamp", full_set_avg: "Average", full_set_rank: "Set Rank", support_text: "Support the project", support_footer: "If this tool is useful to you, consider supporting the developer",
+    lvl: "Lv", passive_title: "6★ Passive", passive_none: "— No passive —", _lang: "en", pick_char: "Pick a character to get started", filter_all: "All", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Full Set Score", full_set_btn: "📊 Full Set", full_set_close: "Back to stamp", full_set_avg: "Average", full_set_rank: "Set Rank", support_text: "Support the project", support_footer: "If this tool is useful to you, consider supporting the developer", weapon_level: "Weapon Stamp", passive_level: "Passive", coming_data: "Data coming soon",
   }
 };
 
@@ -361,9 +387,17 @@ function getRank(score) {
   return { rank: "F", color: "#48484a", glow: "none" };
 }
 
-function getEffectiveWeights(char, ov) {
+function getEffectiveWeights(char, ov, weaponLv = "", passiveLv = "") {
   const w = { ...char.weights };
   if (char.overrides && ov) char.overrides.forEach(o => { if (ov[o.id]) Object.entries(o.changes).forEach(([s, v]) => { w[s] = v; }); });
+  if (weaponLv && WEAPON_LEVELS[char.id]) {
+    const lv = WEAPON_LEVELS[char.id].levels.find(l => l.id === weaponLv);
+    if (lv) Object.entries(lv.changes).forEach(([s, v]) => { w[s] = v; });
+  }
+  if (passiveLv && PASSIVE_LEVELS[char.id]) {
+    const lv = PASSIVE_LEVELS[char.id].levels.find(l => l.id === passiveLv);
+    if (lv) Object.entries(lv.changes).forEach(([s, v]) => { w[s] = v; });
+  }
   return w;
 }
 
@@ -741,21 +775,28 @@ export default function App() {
   const [fullSetMode, setFullSetMode] = useState(false);
   const [setStamps, setSetStamps] = useState({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } });
   const L = LANG[lang];
+  const builderRef = useRef(null);
   const [charId, setCharId] = useState("");
   const [slot, setSlot] = useState("piece_1");
   const [ov, setOv] = useState({});
   const [cmp, setCmp] = useState(false);
+  const [weaponLv, setWeaponLv] = useState("");
+  const [passiveLv, setPassiveLv] = useState("");
   const empty = { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" };
-  const [sA, setSA] = useState({ ...empty });
-  const [sB, setSB] = useState({ ...empty });
+  const emptySlots = () => ({ piece_1: { a: { ...empty }, b: { ...empty } }, piece_2: { a: { ...empty }, b: { ...empty } }, piece_3: { a: { ...empty }, b: { ...empty } } });
+  const [slotData, setSlotData] = useState(emptySlots());
+  const sA = slotData[slot]?.a || empty;
+  const sB = slotData[slot]?.b || empty;
+  const setSA = (v) => setSlotData(prev => ({ ...prev, [slot]: { ...prev[slot], a: typeof v === "function" ? v(prev[slot].a) : v } }));
+  const setSB = (v) => setSlotData(prev => ({ ...prev, [slot]: { ...prev[slot], b: typeof v === "function" ? v(prev[slot].b) : v } }));
 
   const images = useCharacterImages();
   const t = T[mode];
   const ch = CHARACTERS.find(c => c.id === charId) || null;
 
-  useEffect(() => { setSA({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }); setSB({ mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }); setOv({}); setFullSetMode(false); setSetStamps({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } }); }, [charId, slot]);
+  useEffect(() => { if (charId && builderRef.current) { setTimeout(() => builderRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 100); } setSlotData(emptySlots()); setOv({}); setFullSetMode(false); setSetStamps({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } }); setSlot("piece_1"); setWeaponLv(""); setPassiveLv(""); }, [charId]);
 
-  const w = useMemo(() => ch ? getEffectiveWeights(ch, ov) : {}, [ch, ov]);
+  const w = useMemo(() => ch ? getEffectiveWeights(ch, ov, weaponLv, passiveLv) : {}, [ch, ov, weaponLv, passiveLv]);
   const scA = useMemo(() => ch ? calcScore(sA.substats, w, sA.procs, sA.passive, ch.id) : 0, [sA, w, ch]);
   const scB = useMemo(() => ch ? calcScore(sB.substats, w, sB.procs, sB.passive, ch.id) : 0, [sB, w, ch]);
 
@@ -816,6 +857,7 @@ export default function App() {
           </div>
         </div>
 
+        <div ref={builderRef} />
         {ch && ch.coming_soon ? (
           <div style={{ animation: "bsr-fadein 0.4s ease" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 20px", background: t.card, backdropFilter: "blur(24px)", border: `1px solid ${ch.color}22`, borderRadius: 18, marginBottom: 20, boxShadow: `0 0 24px ${ch.color}06` }}>
@@ -896,6 +938,48 @@ export default function App() {
                     </label>
                   );
                 })}
+              </div>
+            )}
+
+            {/* WEAPON STAMP & PASSIVE LEVELS */}
+            {ch && !ch.coming_soon && (WEAPON_LEVELS[ch.id] || PASSIVE_LEVELS[ch.id]) && (
+              <div style={{ marginBottom: 16, display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {WEAPON_LEVELS[ch.id] && (
+                  <>
+                    <span style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, fontWeight: 700, alignSelf: "center", textTransform: "uppercase", letterSpacing: 1 }}>{L.weapon_level}:</span>
+                    {WEAPON_LEVELS[ch.id].levels.map(lv => {
+                      const a = weaponLv === lv.id;
+                      const hasData = Object.keys(lv.changes).length > 0;
+                      return (
+                        <button key={lv.id} onClick={() => setWeaponLv(a ? "" : lv.id)} style={{
+                          fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
+                          border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
+                          background: a ? `${ch.color}12` : t.input,
+                          color: a ? ch.color : hasData ? t.text2 : t.text3,
+                          cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
+                        }}>{lv.label}</button>
+                      );
+                    })}
+                  </>
+                )}
+                {PASSIVE_LEVELS[ch.id] && (
+                  <>
+                    <span style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, fontWeight: 700, alignSelf: "center", textTransform: "uppercase", letterSpacing: 1, marginLeft: 8 }}>{L.passive_level}:</span>
+                    {PASSIVE_LEVELS[ch.id].levels.map(lv => {
+                      const a = passiveLv === lv.id;
+                      const hasData = Object.keys(lv.changes).length > 0;
+                      return (
+                        <button key={lv.id} onClick={() => setPassiveLv(a ? "" : lv.id)} style={{
+                          fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
+                          border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
+                          background: a ? `${ch.color}12` : t.input,
+                          color: a ? ch.color : hasData ? t.text2 : t.text3,
+                          cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
+                        }}>{lv.label}</button>
+                      );
+                    })}
+                  </>
+                )}
               </div>
             )}
 
