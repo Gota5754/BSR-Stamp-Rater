@@ -43,7 +43,7 @@ const CHARACTERS = [
     id: "kisuke", rarity: "SSR", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom", initials: "KU",
     color: "#2ecc71", gradient: "linear-gradient(135deg, #2ecc71, #1a5c34)", mal_id: 36,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "Flat ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Reishi Analysis", weapon_stamp: "Hidden Wisdom",
     overrides: null
   },
@@ -51,7 +51,7 @@ const CHARACTERS = [
     id: "byakuya", rarity: "SSR", name: "Byakuya Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "BY",
     color: "#e891cf", gradient: "linear-gradient(135deg, #e891cf, #8e44ad)", mal_id: 24,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Thousand Blade Funeral", weapon_stamp: "Blooming Sakura",
     overrides: [{ id: "b1_active", label: "B1 (DPS mode)", changes: { "ATK %": 0.8, "Crit Rate %": 0.9 } }]
   },
@@ -59,7 +59,7 @@ const CHARACTERS = [
     id: "kenpachi", rarity: "SSR", name: "Kenpachi Zaraki", subtitle: null, set_bis: "Ready to Go", initials: "KZ",
     color: "#f1c40f", gradient: "linear-gradient(135deg, #f1c40f, #c0392b)", mal_id: 35,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.5, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Savage Cleave", weapon_stamp: "Ready to Go",
     overrides: [{ id: "ucr_useless", label: "B2 activé", changes: { "Ultimate Charge Rate %": 0.4 }, rec_override: { piece_3: ["Ailment DMG Bonus %"] } }]
   },
@@ -67,7 +67,7 @@ const CHARACTERS = [
     id: "toshiro", rarity: "SSR", name: "Toshiro Hitsugaya", subtitle: null, set_bis: "World Conquest", initials: "TH",
     color: "#74d4f0", gradient: "linear-gradient(135deg, #74d4f0, #2980b9)", mal_id: 28,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Ice Dragon Reign", weapon_stamp: "World Conquest",
     overrides: [{ id: "b2_active", label: "B2 activé", changes: { "Crit Rate %": 0.7, "Crit DMG %": 1.0 } }]
   },
@@ -75,7 +75,7 @@ const CHARACTERS = [
     id: "aizen", rarity: "SSR", name: "Sosuke Aizen", subtitle: null, set_bis: "Immeasurable Gap", initials: "SA",
     color: "#9b59b6", gradient: "linear-gradient(135deg, #9b59b6, #2c3e50)", mal_id: 32,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.3, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.3, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Before We Realized", weapon_stamp: "Immeasurable Gap",
     overrides: [{ id: "b6_active", label: "B6 activé (Crit ×2)", changes: { "Crit Rate %": 0.9, "Crit DMG %": 1.0 }, rec_override: { piece_2: ["Crit DMG %"] } }]
   },
@@ -83,7 +83,7 @@ const CHARACTERS = [
     id: "gin", rarity: "SSR", name: "Gin Ichimaru", subtitle: null, set_bis: "Mocking Visage", initials: "GI",
     color: "#bdc3c7", gradient: "linear-gradient(135deg, #bdc3c7, #5d6d7e)", mal_id: 34,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.7, "Ultimate Charge Rate %": 0.4, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.7, "Ultimate Charge Rate %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Deadly Venom", weapon_stamp: "Mocking Visage",
     overrides: [{ id: "ailment_cap", label: "Ailment ≥ 80%", changes: { "Ailment Bonus %": 0.4, "ATK %": 0.8 } }]
   },
@@ -91,7 +91,7 @@ const CHARACTERS = [
     id: "nelliel", rarity: "SSR", name: "Nelliel", subtitle: "Tu Odelschwanck", set_bis: "Knight's Anthem", initials: "NE",
     color: "#1abc9c", gradient: "linear-gradient(135deg, #1abc9c, #16a085)", mal_id: 2512,
     recommended_main_stats: { piece_1: ["ATK %", "Thrust DMG %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %", "Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Impale Scale", weapon_stamp: "Knight's Anthem",
     overrides: [{ id: "b2_active", label: "B2 (80% Crit DMG)", changes: { "Crit DMG %": 0.8, "Crit Rate %": 1.0 } }, { id: "b4_active", label: "B4 (+20% Crit Rate)", changes: { "Crit Rate %": 0.8, "Crit DMG %": 1.0 } }]
   },
@@ -99,7 +99,7 @@ const CHARACTERS = [
     id: "ikkaku", rarity: "SSR", name: "Ikkaku Madarame", subtitle: null, set_bis: "Unyielding Light", initials: "IM",
     color: "#e74c3c", gradient: "linear-gradient(135deg, #e74c3c, #c0392b)", mal_id: 38,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     core_stamp: "Dragon Crest", weapon_stamp: "Unyielding Light",
     overrides: [{ id: "b1_active", label: "B1 (Bleed+)", changes: { "Ailment Bonus %": 0.6 } }]
   },
@@ -107,7 +107,7 @@ const CHARACTERS = [
     id: "tosen", rarity: "SSR", name: "Kaname Tosen", subtitle: null, set_bis: "Mocking Visage", initials: "KT",
     color: "#8e44ad", gradient: "linear-gradient(135deg, #8e44ad, #2c3e50)", mal_id: 47,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %", "Ultimate Charge Rate %"] },
-    weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "Flat ATK": 0.4, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK": 0.4, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Wound Settlement", weapon_stamp: "Mocking Visage",
     overrides: [{ id: "b1_active", label: "B1 (Wound retain)", changes: { "ATK %": 1.0, "Crit Rate %": 0.9 } }]
   },
@@ -115,7 +115,7 @@ const CHARACTERS = [
     id: "yoruichi", rarity: "SSR", name: "Yoruichi Shihoin", subtitle: "Flash Goddess", set_bis: "Shadow in Still Night", initials: "YS",
     color: "#d4a017", gradient: "linear-gradient(135deg, #d4a017, #6c3483)", mal_id: 30,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Lightning Seal", weapon_stamp: "Shadow in Still Night",
     overrides: null
   },
@@ -123,7 +123,7 @@ const CHARACTERS = [
     id: "komamura", rarity: "SSR", name: "Sajin Komamura", subtitle: null, set_bis: "Inner Fang", initials: "SK",
     color: "#b8860b", gradient: "linear-gradient(135deg, #b8860b, #8b4513)", mal_id: 29,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Build Up", weapon_stamp: "Inner Fang",
     overrides: [{ id: "b1_active", label: "B1 (Strike RES↓)", changes: { "ATK %": 0.8 } }]
   },
@@ -139,7 +139,7 @@ const CHARACTERS = [
     id: "ichigo_initial", rarity: "SR", name: "Ichigo Kurosaki (Initial)", subtitle: null, set_bis: "Rising Black Moon", initials: "IK",
     color: "#ff8c00", gradient: "linear-gradient(135deg, #ff8c00, #b85c00)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.7, "ATK %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.7, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -147,7 +147,7 @@ const CHARACTERS = [
     id: "ichigo_shikai", rarity: "SR", name: "Ichigo Kurosaki (Shikai)", subtitle: null, set_bis: "Savage Beast King", initials: "IS",
     color: "#e67e22", gradient: "linear-gradient(135deg, #e67e22, #a0522d)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -155,7 +155,7 @@ const CHARACTERS = [
     id: "momo", rarity: "SR", name: "Momo Hinamori", subtitle: null, set_bis: "Hidden Wisdom", initials: "MH",
     color: "#5b8fb9", gradient: "linear-gradient(135deg, #5b8fb9, #2c3e6b)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "Flat ATK": 0.3, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.3, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -163,7 +163,7 @@ const CHARACTERS = [
     id: "nemu", rarity: "SR", name: "Nemu Kurotsuchi", subtitle: null, set_bis: "Hidden Wisdom", initials: "NK",
     color: "#2d3436", gradient: "linear-gradient(135deg, #2d3436, #636e72)", mal_id: null,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -171,7 +171,7 @@ const CHARACTERS = [
     id: "orihime", rarity: "SR", name: "Orihime Inoue", subtitle: null, set_bis: "Hidden Wisdom", initials: "OI",
     color: "#e17055", gradient: "linear-gradient(135deg, #e17055, #d63031)", mal_id: null,
     recommended_main_stats: { piece_1: ["HP %"], piece_2: [], piece_3: ["Ultimate Charge Rate %", "HP %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "HP %": 0.7, "Flat HP": 0.4, "DEF %": 0.3, "Flat DEF": 0.2, "ATK %": 0, "Flat ATK": 0, "Crit Rate %": 0, "Crit DMG %": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "HP %": 0.7, "Flat HP": 0.4, "DEF %": 0.3, "Flat DEF": 0.2, "ATK %": 0, "ATK": 0, "Crit Rate %": 0, "Crit DMG %": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -179,7 +179,7 @@ const CHARACTERS = [
     id: "rangiku", rarity: "SR", name: "Rangiku Matsumoto", subtitle: null, set_bis: "Mocking Visage / Hidden Wisdom", initials: "RM",
     color: "#fdcb6e", gradient: "linear-gradient(135deg, #fdcb6e, #e17055)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Ailment Bonus %": 0.8, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Ailment Bonus %": 0.8, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -187,7 +187,7 @@ const CHARACTERS = [
     id: "renji", rarity: "SR", name: "Renji Abarai", subtitle: null, set_bis: "Unyielding Light", initials: "RA",
     color: "#c0392b", gradient: "linear-gradient(135deg, #c0392b, #7b241c)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "Ailment Bonus %": 0.6, "ATK %": 0.5, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "Ailment Bonus %": 0.6, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -195,7 +195,7 @@ const CHARACTERS = [
     id: "rukia", rarity: "SR", name: "Rukia Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "RK",
     color: "#a29bfe", gradient: "linear-gradient(135deg, #a29bfe, #6c5ce7)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -203,7 +203,7 @@ const CHARACTERS = [
     id: "sado", rarity: "SR", name: "Yasutora Sado", subtitle: "Chad", set_bis: "???", initials: "YS",
     color: "#6d4c41", gradient: "linear-gradient(135deg, #6d4c41, #3e2723)", mal_id: null,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "HP %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK %": 0.5, "Flat ATK": 0.4, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "HP %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK %": 0.5, "ATK": 0.4, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -211,7 +211,7 @@ const CHARACTERS = [
     id: "ururu", rarity: "SR", name: "Ururu Tsumugiya", subtitle: null, set_bis: "Savage Beast King", initials: "UT",
     color: "#b388ff", gradient: "linear-gradient(135deg, #b388ff, #7c4dff)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -219,7 +219,7 @@ const CHARACTERS = [
     id: "uryu", rarity: "SR", name: "Uryu Ishida", subtitle: null, set_bis: "Inner Fang", initials: "UI",
     color: "#74b9ff", gradient: "linear-gradient(135deg, #74b9ff, #0984e3)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -227,7 +227,7 @@ const CHARACTERS = [
     id: "yachiru", rarity: "SR", name: "Yachiru Kusajishi", subtitle: null, set_bis: "Hidden Wisdom", initials: "YK",
     color: "#fd79a8", gradient: "linear-gradient(135deg, #fd79a8, #e84393)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "Flat ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   }
