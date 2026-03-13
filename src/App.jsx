@@ -35,7 +35,7 @@ const CHARACTERS = [
     id: "ichigo_bankai", rarity: "SSR", name: "Ichigo Kurosaki (Bankai)", subtitle: null, set_bis: "Rising Black Moon", initials: "IC",
     color: "#ff6a00", gradient: "linear-gradient(135deg, #ff6a00, #ee0979)", mal_id: 5,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Getsuga Tangle", weapon_stamp: "Rising Black Moon",
     overrides: null
   },
@@ -43,7 +43,7 @@ const CHARACTERS = [
     id: "kisuke", rarity: "SSR", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom", initials: "KU",
     color: "#2ecc71", gradient: "linear-gradient(135deg, #2ecc71, #1a5c34)", mal_id: 36,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Reishi Analysis", weapon_stamp: "Hidden Wisdom",
     overrides: null
   },
@@ -51,7 +51,7 @@ const CHARACTERS = [
     id: "byakuya", rarity: "SSR", name: "Byakuya Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "BY",
     color: "#e891cf", gradient: "linear-gradient(135deg, #e891cf, #8e44ad)", mal_id: 24,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Thousand Blade Funeral", weapon_stamp: "Blooming Sakura",
     overrides: [{ id: "b1_active", label: "B1 (DPS mode)", changes: { "ATK %": 0.8, "Crit Rate %": 0.9 } }]
   },
@@ -59,7 +59,7 @@ const CHARACTERS = [
     id: "kenpachi", rarity: "SSR", name: "Kenpachi Zaraki", subtitle: null, set_bis: "Ready to Go", initials: "KZ",
     color: "#f1c40f", gradient: "linear-gradient(135deg, #f1c40f, #c0392b)", mal_id: 35,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     core_stamp: "Savage Cleave", weapon_stamp: "Ready to Go",
     overrides: [{ id: "ucr_useless", label: "B2 activé", changes: { "Ultimate Charge Rate %": 0.4 }, rec_override: { piece_3: ["Ailment DMG Bonus %"] } }]
   },
@@ -67,7 +67,7 @@ const CHARACTERS = [
     id: "toshiro", rarity: "SSR", name: "Toshiro Hitsugaya", subtitle: null, set_bis: "World Conquest", initials: "TH",
     color: "#74d4f0", gradient: "linear-gradient(135deg, #74d4f0, #2980b9)", mal_id: 28,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Ice Dragon Reign", weapon_stamp: "World Conquest",
     overrides: [{ id: "b2_active", label: "B2 activé", changes: { "Crit Rate %": 0.7, "Crit DMG %": 1.0 } }]
   },
@@ -75,7 +75,7 @@ const CHARACTERS = [
     id: "aizen", rarity: "SSR", name: "Sosuke Aizen", subtitle: null, set_bis: "Immeasurable Gap", initials: "SA",
     color: "#9b59b6", gradient: "linear-gradient(135deg, #9b59b6, #2c3e50)", mal_id: 32,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.3, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.3, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Before We Realized", weapon_stamp: "Immeasurable Gap",
     overrides: [{ id: "b6_active", label: "B6 activé (Crit ×2)", changes: { "Crit Rate %": 0.9, "Crit DMG %": 1.0 }, rec_override: { piece_2: ["Crit DMG %"] } }]
   },
@@ -83,7 +83,7 @@ const CHARACTERS = [
     id: "gin", rarity: "SSR", name: "Gin Ichimaru", subtitle: null, set_bis: "Mocking Visage", initials: "GI",
     color: "#bdc3c7", gradient: "linear-gradient(135deg, #bdc3c7, #5d6d7e)", mal_id: 34,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.7, "Ultimate Charge Rate %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ailment Bonus %": 0.8, "ATK %": 0.7, "Ultimate Charge Rate %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     core_stamp: "Deadly Venom", weapon_stamp: "Mocking Visage",
     overrides: [{ id: "ailment_cap", label: "Ailment ≥ 80%", changes: { "Ailment Bonus %": 0.4, "ATK %": 0.8 } }]
   },
@@ -91,7 +91,7 @@ const CHARACTERS = [
     id: "nelliel", rarity: "SSR", name: "Nelliel", subtitle: "Tu Odelschwanck", set_bis: "Knight's Anthem", initials: "NE",
     color: "#1abc9c", gradient: "linear-gradient(135deg, #1abc9c, #16a085)", mal_id: 2512,
     recommended_main_stats: { piece_1: ["ATK %", "Thrust DMG %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %", "Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 0.9, "Ailment Bonus %": 0.8, "ATK %": 0.6, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     core_stamp: "Impale Scale", weapon_stamp: "Knight's Anthem",
     overrides: [{ id: "b2_active", label: "B2 (80% Crit DMG)", changes: { "Crit DMG %": 0.8, "Crit Rate %": 1.0 } }, { id: "b4_active", label: "B4 (+20% Crit Rate)", changes: { "Crit Rate %": 0.8, "Crit DMG %": 1.0 } }]
   },
@@ -99,7 +99,7 @@ const CHARACTERS = [
     id: "ikkaku", rarity: "SSR", name: "Ikkaku Madarame", subtitle: null, set_bis: "Unyielding Light", initials: "IM",
     color: "#e74c3c", gradient: "linear-gradient(135deg, #e74c3c, #c0392b)", mal_id: 38,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "Ailment Bonus %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     core_stamp: "Dragon Crest", weapon_stamp: "Unyielding Light",
     overrides: [{ id: "b1_active", label: "B1 (Bleed+)", changes: { "Ailment Bonus %": 0.6 } }]
   },
@@ -107,7 +107,7 @@ const CHARACTERS = [
     id: "tosen", rarity: "SSR", name: "Kaname Tosen", subtitle: null, set_bis: "Mocking Visage", initials: "KT",
     color: "#8e44ad", gradient: "linear-gradient(135deg, #8e44ad, #2c3e50)", mal_id: 47,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "ATK %", "Ultimate Charge Rate %"] },
-    weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK": 0.4, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "ATK %": 1.0, "Crit Rate %": 0.8, "Crit DMG %": 0.8, "ATK": 0.4, "Ultimate Charge Rate %": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Wound Settlement", weapon_stamp: "Mocking Visage",
     overrides: [{ id: "b1_active", label: "B1 (Wound retain)", changes: { "ATK %": 1.0, "Crit Rate %": 0.9 } }]
   },
@@ -115,7 +115,7 @@ const CHARACTERS = [
     id: "yoruichi", rarity: "SSR", name: "Yoruichi Shihoin", subtitle: "Flash Goddess", set_bis: "Shadow in Still Night", initials: "YS",
     color: "#d4a017", gradient: "linear-gradient(135deg, #d4a017, #6c3483)", mal_id: 30,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Lightning Seal", weapon_stamp: "Shadow in Still Night",
     overrides: null
   },
@@ -123,23 +123,24 @@ const CHARACTERS = [
     id: "komamura", rarity: "SSR", name: "Sajin Komamura", subtitle: null, set_bis: "Inner Fang", initials: "SK",
     color: "#b8860b", gradient: "linear-gradient(135deg, #b8860b, #8b4513)", mal_id: 29,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Build Up", weapon_stamp: "Inner Fang",
     overrides: [{ id: "b1_active", label: "B1 (Strike RES↓)", changes: { "ATK %": 0.8 } }]
   },
   {
-    id: "mayuri", rarity: "SSR", name: "Mayuri Kurotsuchi", subtitle: null, set_bis: "???", initials: "MK",
-    color: "#6c3baa", gradient: "linear-gradient(135deg, #6c3baa, #1a1a3e)", mal_id: null,
-    recommended_main_stats: { piece_1: [], piece_2: [], piece_3: [] },
-    weights: {},
+    id: "mayuri", rarity: "SSR", name: "Mayuri Kurotsuchi", subtitle: null, set_bis: "Sample Collection", initials: "MK",
+    color: "#6c3baa", gradient: "linear-gradient(135deg, #6c3baa, #1a1a3e)", mal_id: 398,
+    recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["ATK %"], piece_3: ["Ultimate Charge Rate %"] },
+    weights: { "Crit Rate %": 0, "Crit DMG %": 0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0.4 },
+    core_stamp: "Curious About You", weapon_stamp: "Wipe Out",
     overrides: null,
-    coming_soon: true
+    coming_soon: false
   },
   {
     id: "ichigo_initial", rarity: "SR", name: "Ichigo Kurosaki (Initial)", subtitle: null, set_bis: "Rising Black Moon", initials: "IK",
     color: "#ff8c00", gradient: "linear-gradient(135deg, #ff8c00, #b85c00)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.7, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.7, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -147,7 +148,7 @@ const CHARACTERS = [
     id: "ichigo_shikai", rarity: "SR", name: "Ichigo Kurosaki (Shikai)", subtitle: null, set_bis: "Savage Beast King", initials: "IS",
     color: "#e67e22", gradient: "linear-gradient(135deg, #e67e22, #a0522d)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -155,7 +156,7 @@ const CHARACTERS = [
     id: "momo", rarity: "SR", name: "Momo Hinamori", subtitle: null, set_bis: "Hidden Wisdom", initials: "MH",
     color: "#5b8fb9", gradient: "linear-gradient(135deg, #5b8fb9, #2c3e6b)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.3, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.3, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -163,7 +164,7 @@ const CHARACTERS = [
     id: "nemu", rarity: "SR", name: "Nemu Kurotsuchi", subtitle: null, set_bis: "Hidden Wisdom", initials: "NK",
     color: "#2d3436", gradient: "linear-gradient(135deg, #2d3436, #636e72)", mal_id: null,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -171,7 +172,7 @@ const CHARACTERS = [
     id: "orihime", rarity: "SR", name: "Orihime Inoue", subtitle: null, set_bis: "Hidden Wisdom", initials: "OI",
     color: "#e17055", gradient: "linear-gradient(135deg, #e17055, #d63031)", mal_id: null,
     recommended_main_stats: { piece_1: ["HP %"], piece_2: [], piece_3: ["Ultimate Charge Rate %", "HP %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "HP %": 0.7, "Flat HP": 0.4, "DEF %": 0.3, "Flat DEF": 0.2, "ATK %": 0, "ATK": 0, "Crit Rate %": 0, "Crit DMG %": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "HP %": 0.7, "HP": 0.4, "DEF %": 0.3, "DEF": 0.2, "ATK %": 0, "ATK": 0, "Crit Rate %": 0, "Crit DMG %": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -179,7 +180,7 @@ const CHARACTERS = [
     id: "rangiku", rarity: "SR", name: "Rangiku Matsumoto", subtitle: null, set_bis: "Mocking Visage / Hidden Wisdom", initials: "RM",
     color: "#fdcb6e", gradient: "linear-gradient(135deg, #fdcb6e, #e17055)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ailment DMG Bonus %", "Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Ailment Bonus %": 0.8, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Ailment Bonus %": 0.8, "Crit Rate %": 0.7, "Crit DMG %": 0.7, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -187,7 +188,7 @@ const CHARACTERS = [
     id: "renji", rarity: "SR", name: "Renji Abarai", subtitle: null, set_bis: "Unyielding Light", initials: "RA",
     color: "#c0392b", gradient: "linear-gradient(135deg, #c0392b, #7b241c)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "Ailment DMG Bonus %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "Ailment Bonus %": 0.6, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "Ailment Bonus %": 0.6, "ATK %": 0.5, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -195,7 +196,7 @@ const CHARACTERS = [
     id: "rukia", rarity: "SR", name: "Rukia Kuchiki", subtitle: null, set_bis: "Blooming Sakura", initials: "RK",
     color: "#a29bfe", gradient: "linear-gradient(135deg, #a29bfe, #6c5ce7)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -203,7 +204,7 @@ const CHARACTERS = [
     id: "sado", rarity: "SR", name: "Yasutora Sado", subtitle: "Chad", set_bis: "???", initials: "YS",
     color: "#6d4c41", gradient: "linear-gradient(135deg, #6d4c41, #3e2723)", mal_id: null,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "HP %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK %": 0.5, "ATK": 0.4, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "HP %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK %": 0.5, "ATK": 0.4, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -211,7 +212,7 @@ const CHARACTERS = [
     id: "ururu", rarity: "SR", name: "Ururu Tsumugiya", subtitle: null, set_bis: "Savage Beast King", initials: "UT",
     color: "#b388ff", gradient: "linear-gradient(135deg, #b388ff, #7c4dff)", mal_id: null,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.7, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -219,7 +220,7 @@ const CHARACTERS = [
     id: "uryu", rarity: "SR", name: "Uryu Ishida", subtitle: null, set_bis: "Inner Fang", initials: "UI",
     color: "#74b9ff", gradient: "linear-gradient(135deg, #74b9ff, #0984e3)", mal_id: null,
     recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %", "ATK %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   },
@@ -227,7 +228,7 @@ const CHARACTERS = [
     id: "yachiru", rarity: "SR", name: "Yachiru Kusajishi", subtitle: null, set_bis: "Hidden Wisdom", initials: "YK",
     color: "#fd79a8", gradient: "linear-gradient(135deg, #fd79a8, #e84393)", mal_id: null,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "Flat HP": 0, "Flat DEF": 0, "Ailment Bonus %": 0 },
+    weights: { "Ultimate Charge Rate %": 1.0, "Crit Rate %": 0.9, "Crit DMG %": 0.9, "ATK %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: null,
     coming_soon: false
   }
@@ -245,7 +246,8 @@ const CHAR_GUIDES = {
   ikkaku: { fr: 'Ikkaku est un DPS Thrust basé sur le Bleed. UCR est prioritaire pour spam son ultime. À B1, l\'Ailment prend plus de valeur.', en: 'Ikkaku is a Thrust DPS based on Bleed. UCR is priority for ulti spam. At B1, Ailment gains more value.' },
   tosen: { fr: 'Tosen est le cœur des comps Wound/Bleed. L\'ATK% est sa stat reine car tout son kit scale sur l\'ATK. À B1, les Wounds se conservent mieux.', en: 'Tosen is the core of Wound/Bleed comps. ATK% is his top stat since his whole kit scales on ATK. At B1, Wounds retain better.' },
   yoruichi: { fr: 'Yoruichi est la meilleure DPS Strike standard. Son kit dépend entièrement du Crit Rate, Crit DMG et ATK %. 🐱 Shoutout à Yoruichi_Woo, le GOAT de la Flash Goddess.', en: 'Yoruichi is the best standard Strike DPS. Her kit depends entirely on Crit Rate, Crit DMG and ATK%. 🐱 Shoutout to Yoruichi_Woo, the Flash Goddess GOAT.' },
-  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' }
+  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' }  
+  mayuri: { fr: 'Mayuri est un Support spécialisé dans l\'octroi de : dégâts critiques, %ATK et Ailment Mastery', en: 'Mayuri is a Support Specialized in giving : Crit DMG, ATK% and Ailment Mastery' }
 };
 
 const CHAR_PASSIVES = {
@@ -281,6 +283,10 @@ const CHAR_PASSIVES = {
     recommended: ["Overdrive - Tactic", "Enhanced Damage", "Enhanced Ultimate", "Enhanced Technique"],
     note: null
   },
+    mayuri: {
+    recommended: ["Invigorate", "Restrain", "Restrain II", "Invigorate - Support"],
+    note: null
+  },
   ikkaku: {
     recommended: [],
     note: { fr: "⚠️ Ne pas 6★ son équipement.", en: "⚠️ Do not 6★ his gear." }
@@ -310,30 +316,70 @@ const ALL_PASSIVES = [
   "Invigorate - Support", "Restrain",
 ];
 
+const PASSIVE_TOOLTIPS = {
+  "Overdrive - Full Assault": { fr: "Augmente tous les dégâts de 9%. Sur un Full Assault : +3% supplémentaires.", en: "Increases all damage by 9%. On a Full Assault character: +3% extra." },
+  "Overdrive - Tactic": { fr: "Augmente tous les dégâts de 9%. Sur un Tactic : +3% supplémentaires.", en: "Increases all damage by 9%. On a Tactic character: +3% extra." },
+  "Overdrive - Support": { fr: "Augmente tous les dégâts de 9%. Sur un Support : +3% supplémentaires.", en: "Increases all damage by 9%. On a Support character: +3% extra." },
+  "Enhanced Damage": { fr: "Augmente les dégâts globaux de 6%.", en: "Increases overall damage by 6%." },
+  "Enhanced Special Attack - Full Assault": { fr: "Augmente les dégâts de l'attaque spéciale. Full Assault : bonus supplémentaire.", en: "Increases Special Attack damage. Full Assault: extra bonus." },
+  "Enhanced Special Attack": { fr: "Augmente les dégâts de l'attaque spéciale.", en: "Increases Special Attack damage." },
+  "Enhanced Basic Attack - Full Assault": { fr: "Augmente les dégâts de l'attaque de base. Full Assault : bonus supplémentaire.", en: "Increases Basic Attack damage. Full Assault: extra bonus." },
+  "Enhanced Basic Attack": { fr: "Augmente les dégâts de l'attaque de base.", en: "Increases Basic Attack damage." },
+  "Enhanced Technique - Full Assault": { fr: "Augmente les dégâts de la technique. Full Assault : bonus supplémentaire.", en: "Increases Technique damage. Full Assault: extra bonus." },
+  "Enhanced Technique": { fr: "Augmente les dégâts de la technique.", en: "Increases Technique damage." },
+  "Enhanced Ultimate": { fr: "Augmente les dégâts de l'ultime.", en: "Increases Ultimate damage." },
+  "Enhanced Battlefield Skill": { fr: "Augmente les dégâts du Battlefield Skill.", en: "Increases Battlefield Skill damage." },
+  "Enhanced Battlefield Skill II": { fr: "Augmente les dégâts du Battlefield Skill II.", en: "Increases Battlefield Skill II damage." },
+  "Invigorate - Support": { fr: "Augmente les dégâts d'équipe. Ne stack que sur le même personnage.", en: "Increases team damage. Only stacks on the same character." },
+  "Restrain": { fr: "Réduit la résistance ennemie après utilisation d'une compétence.", en: "Reduces enemy resistance after using a skill." },
+};
+
 // ─── WEAPON STAMP LEVELS (A0-A5) — Fill per character as data becomes available ────
 const WEAPON_LEVELS = {
-  ichigo_bankai: {
-    label: "Weapon Stamp",
+  aizen: {
+    label: "Before We Realized",
     levels: [
-      { id: "a0", label: "A0", changes: {} },
-      { id: "a1", label: "A1", changes: {} },
-      { id: "a3", label: "A3", changes: {} },
-      { id: "a5", label: "A5", changes: {} },
+      { id: "a1", label: "A1", changes: { "Crit Rate %": 0.9 }, b6_changes: { "Crit Rate %": 0.5 }, tooltip: { fr: "+25% Crit Rate", en: "+25% Crit Rate" } },
+      { id: "a3", label: "A3", changes: { "Crit Rate %": 0.7 }, b6_changes: { "Crit Rate %": 0.4 }, tooltip: { fr: "+37.5% Crit Rate", en: "+37.5% Crit Rate" } },
+      { id: "a5", label: "A5", changes: { "Crit Rate %": 0.5 }, b6_changes: { "Crit Rate %": 0.3 }, tooltip: { fr: "+50% Crit Rate", en: "+50% Crit Rate" } },
     ]
   },
-  // Add other characters as data becomes available
+  gin: {
+    label: "Buto: Renjin",
+    levels: [
+      { id: "a1", label: "A1", changes: { "Crit Rate %": 0.9 }, tooltip: { fr: "+15% Crit Rate", en: "+15% Crit Rate" } },
+      { id: "a3", label: "A3", changes: { "Crit Rate %": 0.8 }, tooltip: { fr: "+22.5% Crit Rate", en: "+22.5% Crit Rate" } },
+      { id: "a5", label: "A5", changes: { "Crit Rate %": 0.7 }, tooltip: { fr: "+30% Crit Rate", en: "+30% Crit Rate" } },
+    ]
+  },
 };
 
 // ─── PASSIVE SKILL LEVELS — Fill per character as data becomes available ────
 const PASSIVE_LEVELS = {
   nelliel: {
-    label: "Passive Lv",
+    label: "Dead Aim",
     levels: [
-      { id: "p1", label: "Lv1", changes: {} },
-      { id: "p3", label: "Lv3", changes: {} },
+      { id: "p3", label: "Lv3", changes: { "Crit Rate %": 0.7, "Crit DMG %": 1.0 }, tooltip: { fr: "Dead Aim — +25% Crit Rate en combat", en: "Dead Aim — +25% Crit Rate in battle" } },
     ]
   },
-  // Add other characters as data becomes available
+  ichigo_bankai: {
+    label: "Spirit Surge",
+    levels: [
+      { id: "p3", label: "Lv3", changes: {}, tooltip: { fr: "Spirit Surge — Au-delà de 100% CR, chaque 1% → 2% Crit DMG", en: "Spirit Surge — Above 100% CR, every 1% → 2% Crit DMG" } },
+    ]
+  },
+  kisuke: {
+    label: "Kido Master",
+    levels: [
+      { id: "p3", label: "Lv3", changes: {}, tooltip: { fr: "Kido Master — +20% Ultimate Charge Rate", en: "Kido Master — +20% Ultimate Charge Rate" } },
+    ]
+  },
+  gin: {
+    label: "Lethal Dose",
+    levels: [
+      { id: "p3", label: "Lv3", changes: { "Crit Rate %": 0.8 }, tooltip: { fr: "Triggé 2 fois : +30% Crit Rate pendant 20s", en: "Triggered 2 times: +30% Crit Rate for 20s" } },
+    ]
+  },
 };
 
 const STAMP_SLOTS = {
@@ -389,10 +435,15 @@ function getRank(score) {
 
 function getEffectiveWeights(char, ov, weaponLv = "", passiveLv = "") {
   const w = { ...char.weights };
-  if (char.overrides && ov) char.overrides.forEach(o => { if (ov[o.id]) Object.entries(o.changes).forEach(([s, v]) => { w[s] = v; }); });
+  const activeOverrides = {};
+  if (char.overrides && ov) char.overrides.forEach(o => { if (ov[o.id]) { activeOverrides[o.id] = true; Object.entries(o.changes).forEach(([s, v]) => { w[s] = v; }); } });
   if (weaponLv && WEAPON_LEVELS[char.id]) {
     const lv = WEAPON_LEVELS[char.id].levels.find(l => l.id === weaponLv);
-    if (lv) Object.entries(lv.changes).forEach(([s, v]) => { w[s] = v; });
+    if (lv) {
+      const hasB6 = lv.b6_changes && Object.keys(activeOverrides).some(k => k.includes("b6"));
+      const changes = hasB6 ? lv.b6_changes : lv.changes;
+      Object.entries(changes).forEach(([s, v]) => { w[s] = v; });
+    }
   }
   if (passiveLv && PASSIVE_LEVELS[char.id]) {
     const lv = PASSIVE_LEVELS[char.id].levels.find(l => l.id === passiveLv);
@@ -473,6 +524,10 @@ if (typeof document !== "undefined" && !document.getElementById(styleId)) {
     .bsr-card:hover { transform: translateY(-2px); }
     .bsr-charCard { transition: all 0.25s ease !important; cursor: pointer; }
     .bsr-charCard:hover { transform: translateY(-4px) scale(1.02); }
+    .bsr-tooltip-wrap { position: relative; }
+    .bsr-tooltip-wrap .bsr-tooltip { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: rgba(20,20,24,0.95); color: #fff; padding: 8px 12px; border-radius: 10px; font-size: 11px; font-family: 'Outfit'; z-index: 100; pointer-events: none; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(12px); max-width: 320px; white-space: normal; box-shadow: 0 8px 24px rgba(0,0,0,0.4); line-height: 1.4; }
+    .bsr-tooltip-wrap:hover .bsr-tooltip { display: block; }
+    @media (max-width: 600px) { .bsr-tooltip-wrap:active .bsr-tooltip { display: block; } }
     @media (max-width: 600px) {
       .bsr-charGrid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
       .bsr-stampCards { flex-direction: column !important; }
@@ -703,17 +758,21 @@ function StampCard({ label, character, slot, weights, stamp, setStamp, score, t,
                   const isActive = passive === p;
                   const rankColors = ["#ff2d55", "#ff9500", "#ffd700", "#5ac8fa"];
                   const rankLabels = ["BiS", "#2", "#3", "#4"];
+                  const tip = PASSIVE_TOOLTIPS[p] ? PASSIVE_TOOLTIPS[p][L._lang || "fr"] : "";
                   return (
-                    <button key={p} onClick={() => setStamp({ ...stamp, passive: isActive ? "" : p })} style={{
-                      display: "flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 10,
-                      border: isActive ? `2px solid ${rankColors[idx]}` : `1px solid ${t.cardBorder}`,
-                      background: isActive ? `${rankColors[idx]}12` : t.input,
-                      cursor: "pointer", fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700,
-                      color: isActive ? rankColors[idx] : t.text2, transition: "all 0.2s",
-                    }}>
-                      <span style={{ background: rankColors[idx], color: "#fff", fontSize: 8, fontWeight: 900, padding: "2px 5px", borderRadius: 4, letterSpacing: 0.5 }}>{rankLabels[idx]}</span>
-                      {p}
-                    </button>
+                    <div key={p} style={{ position: "relative" }} className="bsr-tooltip-wrap">
+                      <button onClick={() => setStamp({ ...stamp, passive: isActive ? "" : p })} style={{
+                        display: "flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 10,
+                        border: isActive ? `2px solid ${rankColors[idx]}` : `1px solid ${t.cardBorder}`,
+                        background: isActive ? `${rankColors[idx]}12` : t.input,
+                        cursor: "pointer", fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700,
+                        color: isActive ? rankColors[idx] : t.text2, transition: "all 0.2s",
+                      }}>
+                        <span style={{ background: rankColors[idx], color: "#fff", fontSize: 8, fontWeight: 900, padding: "2px 5px", borderRadius: 4, letterSpacing: 0.5 }}>{rankLabels[idx]}</span>
+                        {p}
+                      </button>
+                      {tip && <div className="bsr-tooltip">{tip}</div>}
+                    </div>
                   );
                 })}
               </div>
@@ -950,14 +1009,18 @@ export default function App() {
                     {WEAPON_LEVELS[ch.id].levels.map(lv => {
                       const a = weaponLv === lv.id;
                       const hasData = Object.keys(lv.changes).length > 0;
+                      const tip = lv.tooltip ? lv.tooltip[L._lang || "fr"] : "";
                       return (
-                        <button key={lv.id} onClick={() => setWeaponLv(a ? "" : lv.id)} style={{
-                          fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
-                          border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
-                          background: a ? `${ch.color}12` : t.input,
-                          color: a ? ch.color : hasData ? t.text2 : t.text3,
-                          cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
-                        }}>{lv.label}</button>
+                        <div key={lv.id} style={{ position: "relative" }} className="bsr-tooltip-wrap">
+                          <button onClick={() => setWeaponLv(a ? "" : lv.id)} style={{
+                            fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
+                            border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
+                            background: a ? `${ch.color}12` : t.input,
+                            color: a ? ch.color : hasData ? t.text2 : t.text3,
+                            cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
+                          }}>{lv.label}</button>
+                          {tip && <div className="bsr-tooltip">{tip}</div>}
+                        </div>
                       );
                     })}
                   </>
@@ -968,14 +1031,18 @@ export default function App() {
                     {PASSIVE_LEVELS[ch.id].levels.map(lv => {
                       const a = passiveLv === lv.id;
                       const hasData = Object.keys(lv.changes).length > 0;
+                      const tip = lv.tooltip ? lv.tooltip[L._lang || "fr"] : "";
                       return (
-                        <button key={lv.id} onClick={() => setPassiveLv(a ? "" : lv.id)} style={{
-                          fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
-                          border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
-                          background: a ? `${ch.color}12` : t.input,
-                          color: a ? ch.color : hasData ? t.text2 : t.text3,
-                          cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
-                        }}>{lv.label}</button>
+                        <div key={lv.id} style={{ position: "relative" }} className="bsr-tooltip-wrap">
+                          <button onClick={() => setPassiveLv(a ? "" : lv.id)} style={{
+                            fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, padding: "5px 12px", borderRadius: 8,
+                            border: a ? `2px solid ${ch.color}` : `1px solid ${t.cardBorder}`,
+                            background: a ? `${ch.color}12` : t.input,
+                            color: a ? ch.color : hasData ? t.text2 : t.text3,
+                            cursor: "pointer", transition: "all 0.2s", opacity: hasData ? 1 : 0.5,
+                          }}>{lv.label}</button>
+                          {tip && <div className="bsr-tooltip">{tip}</div>}
+                        </div>
                       );
                     })}
                   </>
