@@ -246,7 +246,7 @@ const CHAR_GUIDES = {
   ikkaku: { fr: 'Ikkaku est un DPS Thrust basé sur le Bleed. UCR est prioritaire pour spam son ultime. À B1, l\'Ailment prend plus de valeur.', en: 'Ikkaku is a Thrust DPS based on Bleed. UCR is priority for ulti spam. At B1, Ailment gains more value.' },
   tosen: { fr: 'Tosen est le cœur des comps Wound/Bleed. L\'ATK% est sa stat reine car tout son kit scale sur l\'ATK. À B1, les Wounds se conservent mieux.', en: 'Tosen is the core of Wound/Bleed comps. ATK% is his top stat since his whole kit scales on ATK. At B1, Wounds retain better.' },
   yoruichi: { fr: 'Yoruichi est la meilleure DPS Strike standard. Son kit dépend entièrement du Crit Rate, Crit DMG et ATK %. 🐱 Shoutout à Yoruichi_Woo, le GOAT de la Flash Goddess.', en: 'Yoruichi is the best standard Strike DPS. Her kit depends entirely on Crit Rate, Crit DMG and ATK%. 🐱 Shoutout to Yoruichi_Woo, the Flash Goddess GOAT.' },
-  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' }  
+  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' } ,
   mayuri: { fr: 'Mayuri est un Support spécialisé dans l\'octroi de : dégâts critiques, %ATK et Ailment Mastery', en: 'Mayuri is a Support Specialized in giving : Crit DMG, ATK% and Ailment Mastery' }
 };
 
