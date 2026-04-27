@@ -136,7 +136,7 @@ const CHARACTERS = [
     recommended_main_stats: { piece_1: [], piece_2: [], piece_3: [] },
     weights: {},
     overrides: null,
-    coming_soon: true
+    coming_soon: false
   },
   {
     id: "ichigo_initial", rarity: "SR", name: "Ichigo Kurosaki (Initial)", subtitle: null, set_bis: "Rising Black Moon", initials: "IK",
