@@ -133,9 +133,10 @@ const CHARACTERS = [
   {
     id: "mayuri", rarity: "SSR", name: "Mayuri Kurotsuchi", subtitle: null, set_bis: "???", initials: "MK",
     color: "#6c3baa", gradient: "linear-gradient(135deg, #6c3baa, #1a1a3e)", mal_id: null,
-    recommended_main_stats: { piece_1: [], piece_2: [], piece_3: [] },
-    weights: {},
-    overrides: null,
+    recommended_main_stats: { piece_1: ["Thrust DMG %", "ATK %"], piece_2: ["ATK %"], piece_3: ["Ultimate Charge Rate %"] },
+    weights: { "Crit Rate %": 0, "Crit DMG %": 0, "Ultimate Charge Rate %": 1.0, "ATK %": 0.4, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0.6 },
+    core_stamp: "Curious About You", weapon_stamp: "Wipe Out",
+    overrides: [{ id: "ucr_cap", label: "UCR > 250%", changes: { "Ultimate Charge Rate %": 0 } }],
     coming_soon: false
   },
   {
