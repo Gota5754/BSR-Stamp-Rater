@@ -245,7 +245,7 @@ const CHARACTERS = [
   },
   {
     id: "grimmjow_pantera", rarity: "SSR", name: "Grimmjow Jaegerjaquez", subtitle: "Pantera", set_bis: "Becoming the King", initials: "GP",
-    color: "#0096c7", gradient: "linear-gradient(135deg, #0096c7, #023e8a)", mal_id: null,
+    color: "#0096c7", gradient: "linear-gradient(135deg, #0096c7, #023e8a)", mal_id: 42,
     recommended_main_stats: { piece_1: ["ATK %", "Strike DMG %"], piece_2: ["Crit Rate %"], piece_3: ["ATK %"] },
     weights: { "ATK %": 1.0, "Crit Rate %": 1.0, "Crit DMG %": 0.8, "Ultimate Charge Rate %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Becoming the King", weapon_stamp: "Becoming the King",
