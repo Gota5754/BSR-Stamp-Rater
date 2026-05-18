@@ -244,6 +244,15 @@ const CHARACTERS = [
     coming_soon: false
   },
   {
+    id: "grimmjow_pantera", rarity: "SSR", name: "Grimmjow Jaegerjaquez", subtitle: "Pantera", set_bis: "Becoming the King", initials: "GP",
+    color: "#0096c7", gradient: "linear-gradient(135deg, #0096c7, #023e8a)", mal_id: null,
+    recommended_main_stats: { piece_1: ["ATK %", "Strike DMG %"], piece_2: ["Crit Rate %"], piece_3: ["ATK %"] },
+    weights: { "ATK %": 1.0, "Crit Rate %": 1.0, "Crit DMG %": 0.8, "Ultimate Charge Rate %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "Becoming the King", weapon_stamp: "Becoming the King",
+    overrides: [{ id: "b6_active", label: "B6 activé", changes: { "Crit Rate %": 0.6 }, rec_override: { piece_2: ["ATK %"] } }],
+    coming_soon: false
+  },
+  {
     id: "soifon", rarity: "SSR", name: "Soi Fon", subtitle: null, set_bis: "Stealth Force", initials: "SF",
     color: "#d4a017", gradient: "linear-gradient(135deg, #d4a017, #8b6914)", mal_id: null,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ailment DMG Bonus %"] },
@@ -273,7 +282,8 @@ const CHAR_GUIDES = {
   ikkaku: { fr: 'Ikkaku est un DPS Thrust basé sur le Bleed. UCR est prioritaire pour spam son ultime. À B1, l\'Ailment prend plus de valeur.', en: 'Ikkaku is a Thrust DPS based on Bleed. UCR is priority for ulti spam. At B1, Ailment gains more value.' },
   tosen: { fr: 'Tosen est le cœur des comps Wound/Bleed. L\'ATK% est sa stat reine car tout son kit scale sur l\'ATK. À B1, les Wounds se conservent mieux.', en: 'Tosen is the core of Wound/Bleed comps. ATK% is his top stat since his whole kit scales on ATK. At B1, Wounds retain better.' },
   yoruichi: { fr: 'Yoruichi est la meilleure DPS Strike standard. Son kit dépend entièrement du Crit Rate, Crit DMG et ATK %. 🐱 Shoutout à Yoruichi_Woo, le GOAT de la Flash Goddess.', en: 'Yoruichi is the best standard Strike DPS. Her kit depends entirely on Crit Rate, Crit DMG and ATK%. 🐱 Shoutout to Yoruichi_Woo, the Flash Goddess GOAT.' },
-  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' }
+  komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' },
+  grimmjow_pantera: { fr: 'Grimmjow Pantera est un DPS Strike SSR qui scale sur l\'ATK% et le Crit. À B6, son Crit Rate est naturellement cappé, ce qui rend l\'ATK% optimal en main stat sur le Stamp II.', en: 'Grimmjow Pantera is a Strike SSR DPS who scales on ATK% and Crit. At B6, his Crit Rate is naturally capped, making ATK% optimal as the Stamp II main stat.' }
 };
 
 const CHAR_PASSIVES = {
@@ -332,6 +342,10 @@ const CHAR_PASSIVES = {
   szayelaporro: {
     recommended: ["Invigorate - Support"],
     note: { fr: "Invigorate ne stack que sur le même perso : 3x Invigorate est idéal.", en: "Invigorate only stacks on the same character: 3x Invigorate is ideal." }
+  },
+  grimmjow_pantera: {
+    recommended: ["Overdrive - Full Assault", "Enhanced Damage", "Enhanced Special Attack - Full Assault", "Enhanced Ultimate"],
+    note: null
   },
   soifon: {
     recommended: ["Enhanced Battlefield Skill II", "Overdrive - Tactic"],
