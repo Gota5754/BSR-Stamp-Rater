@@ -36,7 +36,7 @@ const EMBEDDED_IMAGES = {
 // ─── CHARACTER DATA ─────────────────────────────────────────────────────
 const CHARACTERS = [
   {
-    id: "ichigo_bankai", rarity: "SSR", name: "Ichigo Kurosaki (Bankai)", subtitle: null, set_bis: "Rising Black Moon", initials: "IC",
+    id: "ichigo_bankai", rarity: "SSR", name: "Ichigo Kurosaki (Bankai)", subtitle: null, set_bis: "Rising Black Moon / Ready to Go", initials: "IC",
     color: "#ff6a00", gradient: "linear-gradient(135deg, #ff6a00, #ee0979)", mal_id: 5,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
@@ -44,7 +44,7 @@ const CHARACTERS = [
     overrides: null
   },
   {
-    id: "kisuke", rarity: "SSR", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom", initials: "KU",
+    id: "kisuke", rarity: "SSR", name: "Kisuke Urahara", subtitle: null, set_bis: "Hidden Wisdom / Ready to Go", initials: "KU",
     color: "#2ecc71", gradient: "linear-gradient(135deg, #2ecc71, #1a5c34)", mal_id: 36,
     recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Ultimate Charge Rate %": 1.0, "Crit DMG %": 1.0, "Crit Rate %": 0.6, "ATK %": 0.6, "ATK": 0.2, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
@@ -116,7 +116,7 @@ const CHARACTERS = [
     overrides: [{ id: "b1_active", label: "B1 (Wound retain)", changes: { "ATK %": 1.0, "Crit Rate %": 0.9 } }]
   },
   {
-    id: "yoruichi", rarity: "SSR", name: "Yoruichi Shihoin", subtitle: "Flash Goddess", set_bis: "Shadow in Still Night", initials: "YS",
+    id: "yoruichi", rarity: "SSR", name: "Yoruichi Shihoin", subtitle: "Flash Goddess", set_bis: "Shadow in Still Night / Ready to Go", initials: "YS",
     color: "#d4a017", gradient: "linear-gradient(135deg, #d4a017, #6c3483)", mal_id: 30,
     recommended_main_stats: { piece_1: ["Strike DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
@@ -246,7 +246,7 @@ const CHARACTERS = [
   },
   {
     id: "grimmjow_pantera", rarity: "SSR", name: "Grimmjow Jaegerjaquez", subtitle: "Pantera", set_bis: "Becoming the King", initials: "GP",
-    color: "#0096c7", gradient: "linear-gradient(135deg, #0096c7, #023e8a)", mal_id: null,
+    color: "#0096c7", gradient: "linear-gradient(135deg, #0096c7, #023e8a)", mal_id: 42,
     recommended_main_stats: { piece_1: ["ATK %", "Strike DMG %"], piece_2: ["Crit Rate %"], piece_3: ["ATK %"] },
     weights: { "ATK %": 1.0, "Crit Rate %": 1.0, "Crit DMG %": 0.8, "Ultimate Charge Rate %": 0.7, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Becoming the King", weapon_stamp: "Becoming the King",
