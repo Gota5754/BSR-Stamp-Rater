@@ -1,13 +1,6 @@
-import { useState } from "react";
-
 // ─── TIER LIST DATA ──────────────────────────────────────────────────────────
 // Modifier les placements ici pour mettre à jour la tier list
 const TIER_LIST_DATA = {
-  categories: [
-    { id: "pve", fr: "PvE Général", en: "General PvE" },
-    { id: "raid", fr: "Raid", en: "Raid" },
-    { id: "pvp", fr: "PvP", en: "PvP" },
-  ],
   tiers: [
     { id: "SS", color: "#ff2d55" },
     { id: "S",  color: "#ff9500" },
@@ -17,65 +10,31 @@ const TIER_LIST_DATA = {
     { id: "D",  color: "#8e8e93" },
   ],
   placements: {
-    pve: {
-      SS: ["ichigo_bankai", "kisuke", "aizen"],
-      S:  ["yoruichi", "nelliel", "gin"],
-      A:  ["byakuya", "toshiro", "kenpachi"],
-      B:  ["tosen", "ikkaku", "komamura", "mayuri"],
-      C:  ["ichigo_initial", "ichigo_shikai", "momo", "rangiku"],
-      D:  ["nemu", "orihime", "renji", "rukia"],
-    },
-    raid: {
-      SS: ["kisuke", "aizen"],
-      S:  ["ichigo_bankai", "yoruichi", "nelliel"],
-      A:  ["gin", "byakuya", "toshiro"],
-      B:  ["kenpachi", "tosen", "ikkaku"],
-      C:  ["komamura", "mayuri", "rangiku"],
-      D:  ["ichigo_initial", "ichigo_shikai", "momo", "nemu", "orihime", "renji", "rukia"],
-    },
-    pvp: {
-      SS: ["aizen", "gin"],
-      S:  ["ichigo_bankai", "yoruichi"],
-      A:  ["kisuke", "nelliel", "byakuya"],
-      B:  ["toshiro", "kenpachi", "tosen"],
-      C:  ["ikkaku", "komamura", "mayuri"],
-      D:  ["ichigo_initial", "ichigo_shikai", "momo", "nemu", "orihime", "renji", "rukia", "rangiku"],
-    },
+    SS: ["aizen", "nelliel"],
+    S:  ["grimmjow_pantera", "szayel", "mayuri", "soifon", "gin"],
+    A:  ["toshiro", "kenpachi", "kisuke"],
+    B:  ["yoruichi", "ichigo_bankai", "grimmjow_sr"],
+    C:  ["komamura", "tosen", "rangiku", "momo", "byakuya", "ikkaku", "yachiru"],
+    D:  ["ichigo_initial", "ichigo_shikai", "nemu", "orihime", "renji", "rukia"],
   },
 };
 
-export default function TierList({ characters, images, t, lang }) {
-  const [category, setCategory] = useState("pve");
-  const placements = TIER_LIST_DATA.placements[category];
+// Noms et couleurs pour les personnages pas encore dans l'app principale
+const EXTRA_CHARS = {
+  grimmjow_pantera: { name: "Grimmjow Pantera", initials: "GJ", color: "#4fa8ff", gradient: "linear-gradient(135deg,#1a3a6b,#4fa8ff)" },
+  szayel:           { name: "Szayel Aporro",    initials: "SZ", color: "#cc44cc", gradient: "linear-gradient(135deg,#4a1a6b,#cc44cc)" },
+  soifon:           { name: "Soi Fon",          initials: "SF", color: "#888",    gradient: "linear-gradient(135deg,#333,#888)"       },
+  grimmjow_sr:      { name: "Grimmjow SR+",     initials: "GS", color: "#3a7acc", gradient: "linear-gradient(135deg,#142a4a,#3a7acc)" },
+  yachiru:          { name: "Yachiru",           initials: "YA", color: "#ff7eb3", gradient: "linear-gradient(135deg,#5a1a3a,#ff7eb3)" },
+};
 
+export default function TierList({ characters, images, t, lang }) {
   return (
     <div style={{ animation: "bsr-fadein 0.4s ease" }}>
-      {/* Category selector */}
-      <div style={{ display: "flex", gap: 6, marginBottom: 20, flexWrap: "wrap" }}>
-        {TIER_LIST_DATA.categories.map(cat => {
-          const a = category === cat.id;
-          return (
-            <button
-              key={cat.id}
-              onClick={() => setCategory(cat.id)}
-              style={{
-                fontFamily: "'Outfit'", fontSize: 12, fontWeight: 700,
-                padding: "7px 18px", borderRadius: 10, cursor: "pointer",
-                border: a ? "2px solid #ff9500" : `1px solid ${t.cardBorder}`,
-                background: a ? "rgba(255,149,0,0.12)" : t.input,
-                color: a ? "#ff9500" : t.text2, transition: "all 0.2s",
-              }}
-            >
-              {cat[lang]}
-            </button>
-          );
-        })}
-      </div>
-
       {/* Tier rows */}
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {TIER_LIST_DATA.tiers.map(tier => {
-          const charIds = placements[tier.id] || [];
+          const charIds = TIER_LIST_DATA.placements[tier.id] || [];
           return (
             <div
               key={tier.id}
@@ -104,7 +63,7 @@ export default function TierList({ characters, images, t, lang }) {
                 padding: "10px 14px", alignItems: "center", minHeight: 72,
               }}>
                 {charIds.map(id => {
-                  const char = characters.find(c => c.id === id);
+                  const char = characters.find(c => c.id === id) || EXTRA_CHARS[id];
                   if (!char) return null;
                   const img = images[id];
                   return (
@@ -116,7 +75,7 @@ export default function TierList({ characters, images, t, lang }) {
                       }}>
                         {img
                           ? <img src={img} alt={char.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }} />
-                          : <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", fontWeight: 900, color: "rgba(255,255,255,0.4)", fontSize: 12 }}>{char.initials}</div>
+                          : <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", fontWeight: 900, color: "rgba(255,255,255,0.5)", fontSize: 11 }}>{char.initials}</div>
                         }
                       </div>
                       <span style={{
