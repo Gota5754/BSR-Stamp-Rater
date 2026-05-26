@@ -11,7 +11,7 @@ const TIER_LIST_DATA = {
   ],
   placements: {
     SS: ["aizen", "nelliel"],
-    S:  ["grimmjow_pantera", "szayel", "mayuri", "soifon", "gin"],
+    S:  ["grimmjow_pantera", "szayelaporro", "mayuri", "soifon", "gin"],
     A:  ["toshiro", "kenpachi", "kisuke"],
     B:  ["yoruichi", "ichigo_bankai", "grimmjow_sr"],
     C:  ["komamura", "tosen", "rangiku", "momo", "byakuya", "ikkaku", "yachiru"],
