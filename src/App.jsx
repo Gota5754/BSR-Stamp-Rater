@@ -1,4 +1,7 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+﻿import { useState, useMemo, useEffect, useRef } from "react";
+import TierList from "./TierList";
+import ResourceCalc from "./ResourceCalc";
+import RotationGuide from "./RotationGuide";
 
 // ─── EMBEDDED CHARACTER IMAGES (base64) ─────────────────────────────────
 const EMBEDDED_IMAGES = {
@@ -879,6 +882,7 @@ function WBar({ stat, weight, max, cc, t }) {
 export default function App() {
   const [mode, setMode] = useState("dark");
   const [lang, setLang] = useState("fr");
+  const [activeTab, setActiveTab] = useState("rater");
   const [rarityFilter, setRarityFilter] = useState("all");
   const [fullSetMode, setFullSetMode] = useState(false);
   const [setStamps, setSetStamps] = useState({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } });
@@ -938,6 +942,28 @@ export default function App() {
           </div>
         </div>
 
+        {/* TAB NAVIGATION */}
+        <div style={{ display: "flex", gap: 0, marginTop: 20, borderBottom: `1px solid ${t.div}`, overflowX: "auto", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+          {[
+            { id: "rater",     icon: "⚔️", fr: "Stamp Rater", en: "Stamp Rater" },
+            { id: "tierlist",  icon: "📊", fr: "Tier List",   en: "Tier List"   },
+            { id: "resources", icon: "🎯", fr: "Ressources",  en: "Resources"   },
+            { id: "rotation",  icon: "🔄", fr: "Rotation",    en: "Rotation"    },
+          ].map(tab => {
+            const a = activeTab === tab.id;
+            return (
+              <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
+                fontFamily: "'Outfit'", fontSize: 13, fontWeight: 700,
+                padding: "12px 20px", border: "none", background: "transparent",
+                cursor: "pointer", color: a ? "#ff9500" : t.text2,
+                borderBottom: a ? "2px solid #ff9500" : "2px solid transparent",
+                transition: "all 0.2s", whiteSpace: "nowrap", letterSpacing: 0.3,
+              }}>{tab.icon} {tab[lang]}</button>
+            );
+          })}
+        </div>
+
+        {activeTab === "rater" && (<>
         {/* CHARACTER GRID */}
         <div style={{ marginTop: 24, marginBottom: 24 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
@@ -1194,6 +1220,12 @@ export default function App() {
             <div style={{ fontFamily: "'Outfit'", fontSize: 14, marginTop: 12 }}>{L.pick_char}</div>
           </div>
         )}
+
+        </>)}
+
+        {activeTab === "tierlist"  && <TierList     characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
+        {activeTab === "resources" && <ResourceCalc  characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
+        {activeTab === "rotation"  && <RotationGuide characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
 
         <div style={{ textAlign: "center", marginTop: 48, padding: "24px 16px", borderTop: `1px solid ${t.div}` }}>
           <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, marginBottom: 10 }}>{L.support_footer}</div>
