@@ -41,8 +41,8 @@ const CHARACTERS = [
   {
     id: "ichigo_bankai", rarity: "SSR", name: "Ichigo Kurosaki (Bankai)", subtitle: null, set_bis: "Rising Black Moon / Ready to Go", initials: "IC",
     color: "#ff6a00", gradient: "linear-gradient(135deg, #ff6a00, #ee0979)", mal_id: 5,
-    recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["Ultimate Charge Rate %"] },
-    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.8, "ATK %": 0.8, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
+    recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.4, "ATK %": 0.8, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Getsuga Tangle", weapon_stamp: "Rising Black Moon",
     overrides: null
   },
