@@ -99,8 +99,8 @@ export default function TierList({ characters, images, t, lang }) {
 
       <div style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, marginTop: 14, textAlign: "center", fontStyle: "italic", lineHeight: 1.6 }}>
         {lang === "fr"
-          ? "Tier list basée sur le méta actuel — modifiable dans TIER_LIST_DATA (TierList.jsx)"
-          : "Tier list based on current meta — editable in TIER_LIST_DATA (TierList.jsx)"}
+          ? "Tier list basée sur le méta actuel — B6/A5/CS5"
+          : "Tier list based on current meta — B6/A5/CS5"}
       </div>
     </div>
   );
