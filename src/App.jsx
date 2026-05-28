@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import TierList from "./TierList";
 import ResourceCalc from "./ResourceCalc";
 import RotationGuide from "./RotationGuide";
@@ -71,12 +71,15 @@ const CHARACTERS = [
     overrides: [{ id: "ucr_useless", label: "B2 activé", changes: { "Ultimate Charge Rate %": 0.4 }, rec_override: { piece_3: ["Ailment DMG Bonus %"] } }]
   },
   {
-    id: "toshiro", rarity: "SSR", name: "Toshiro Hitsugaya", subtitle: null, set_bis: "World Conquest", initials: "TH",
+    id: "toshiro", rarity: "SSR", name: "Toshiro Hitsugaya", subtitle: null, set_bis: "Ready to Go", initials: "TH",
     color: "#74d4f0", gradient: "linear-gradient(135deg, #74d4f0, #2980b9)", mal_id: 28,
     recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %", "Crit DMG %"], piece_3: ["ATK %"] },
     weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 0.8, "Ultimate Charge Rate %": 0.6, "ATK": 0.4, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     core_stamp: "Ice Dragon Reign", weapon_stamp: "World Conquest",
-    overrides: [{ id: "b2_active", label: "B2 activé", changes: { "Crit Rate %": 0.7, "Crit DMG %": 1.0 } }]
+    overrides: [
+      { id: "b2_active", label: "B2",      changes: { "Crit Rate %": 0.4, "Crit DMG %": 1.0 } },
+      { id: "b2_a5",     label: "B2 + A5", changes: { "Crit Rate %": 0, "Crit DMG %": 1.0, "Ultimate Charge Rate %": 0.9, "ATK %": 0.85, "ATK": 0.7 } },
+    ]
   },
   {
     id: "aizen", rarity: "SSR", name: "Sosuke Aizen", subtitle: null, set_bis: "Immeasurable Gap", initials: "SA",
@@ -279,7 +282,7 @@ const CHAR_GUIDES = {
   kisuke: { fr: 'Kisuke buff le Crit DMG de toute l\'équipe via Reishi Analysis. Maximiser son propre Crit DMG amplifie ce buff pour tous.', en: 'Kisuke buffs the whole team\'s Crit DMG via Reishi Analysis. Maximizing his own Crit DMG amplifies this buff for everyone.' },
   byakuya: { fr: 'Byakuya est avant tout un buffer off-field Slash. L\'UCR est sa stat reine pour spam son Battlefield Skill.', en: 'Byakuya is primarily an off-field Slash buffer. UCR is his top stat to spam his Battlefield Skill.' },
   kenpachi: { fr: 'Kenpachi scale énormément sur le Crit et l\'Ailment. À B2, l\'UCR perd en priorité car l\'ailment buff son Crit Rate.', en: 'Kenpachi scales heavily on Crit and Ailment. At B2, UCR loses priority as ailment buffs his Crit Rate.' },
-  toshiro: { fr: 'Toshiro est un burst DPS Spirit. À B2, son Crit Rate est buff naturellement, donc Crit DMG et ATK% prennent le dessus.', en: 'Toshiro is a Spirit burst DPS. At B2, his Crit Rate is naturally buffed, so Crit DMG and ATK% take priority.' },
+  toshiro: { fr: 'Toshiro est un burst DPS Spirit. Son meilleur set est Ready to Go (World Conquest reste bon aussi). À B2, son Crit Rate est buff passivement — Crit DMG et ATK% deviennent prioritaires. À B2+A5, il atteint naturellement 100% de Crit Rate : le Crit Rate ne sert plus à rien. Priorités B2+A5 : Crit DMG > UCR > ATK% > ATK.', en: 'Toshiro is a Spirit burst DPS. Best set is Ready to Go (World Conquest is also solid). At B2, Crit Rate is passively buffed — Crit DMG and ATK% take priority. At B2+A5, he naturally hits 100% Crit Rate: Crit Rate is completely useless on stamps. B2+A5 priority: Crit DMG > UCR > ATK% > ATK.' },
   aizen: { fr: 'Aizen est le meilleur tactic universel. À B6, son Crit Rate est presque cap grâce au passif x2, il faut maximiser le Crit DMG.', en: 'Aizen is the best universal tactic. At B6, his Crit Rate is nearly capped via the x2 passive, so maximize Crit DMG.' },
   gin: { fr: 'Gin excelle dans les dégâts d\'altération (poison). Crit et Ailment sont ses deux piliers. Au-delà de 80% Ailment, l\'ATK% devient plus rentable.', en: 'Gin excels at ailment damage (poison). Crit and Ailment are his two pillars. Above 80% Ailment, ATK% becomes more efficient.' },
   nelliel: { fr: 'Nelliel est DPS + support hybride. Son B2 lui donne ~80% uptime Crit DMG, mais empiler davantage reste toujours excellent.', en: 'Nelliel is a hybrid DPS + support. Her B2 gives ~80% Crit DMG uptime, but stacking more is always excellent.' },
