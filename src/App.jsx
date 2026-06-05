@@ -274,6 +274,15 @@ const CHARACTERS = [
     weights: { "Crit DMG %": 1.0, "Crit Rate %": 0.9, "ATK %": 0.7, "ATK": 0.4, "Ultimate Charge Rate %": 0.7, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
     overrides: [{ id: "b6_active", label: "B6", changes: { "Ultimate Charge Rate %": 0.2 } }],
     coming_soon: false
+  },
+  {
+    id: "white_ichigo", rarity: "SSR", name: "White Ichigo", subtitle: null, set_bis: "Mindscape Encroachment", initials: "WI",
+    color: "#d0d0d0", gradient: "linear-gradient(135deg, #e8e8e8, #1a1a1a)", mal_id: null,
+    recommended_main_stats: { piece_1: ["Slash DMG %", "ATK %"], piece_2: ["Crit Rate %"], piece_3: ["ATK %"] },
+    weights: { "Crit Rate %": 1.0, "Crit DMG %": 1.0, "ATK %": 1.0, "Ultimate Charge Rate %": 1.0, "ATK": 0.6, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
+    core_stamp: "The Way to Use Bankai", weapon_stamp: "Mindscape Encroachment",
+    overrides: [{ id: "a5_active", label: "A5", changes: { "Crit Rate %": 0.6 }, rec_override: { piece_2: ["Crit DMG %"] } }],
+    coming_soon: false
   }
 ];
 
@@ -290,7 +299,8 @@ const CHAR_GUIDES = {
   tosen: { fr: 'Tosen est le cœur des comps Wound/Bleed. L\'ATK% est sa stat reine car tout son kit scale sur l\'ATK. À B1, les Wounds se conservent mieux.', en: 'Tosen is the core of Wound/Bleed comps. ATK% is his top stat since his whole kit scales on ATK. At B1, Wounds retain better.' },
   yoruichi: { fr: 'Yoruichi est la meilleure DPS Strike standard. Son kit dépend entièrement du Crit Rate, Crit DMG et ATK %. 🐱 Shoutout à Yoruichi_Woo, le GOAT de la Flash Goddess.', en: 'Yoruichi is the best standard Strike DPS. Her kit depends entirely on Crit Rate, Crit DMG and ATK%. 🐱 Shoutout to Yoruichi_Woo, the Flash Goddess GOAT.' },
   komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' },
-  grimmjow_pantera: { fr: 'Grimmjow Pantera est un DPS Strike SSR qui scale sur l\'ATK% et le Crit. À B6, son Crit Rate est naturellement cappé, ce qui rend l\'ATK% optimal en main stat sur le Stamp II.', en: 'Grimmjow Pantera is a Strike SSR DPS who scales on ATK% and Crit. At B6, his Crit Rate is naturally capped, making ATK% optimal as the Stamp II main stat.' }
+  grimmjow_pantera: { fr: 'Grimmjow Pantera est un DPS Strike SSR qui scale sur l\'ATK% et le Crit. À B6, son Crit Rate est naturellement cappé, ce qui rend l\'ATK% optimal en main stat sur le Stamp II.', en: 'Grimmjow Pantera is a Strike SSR DPS who scales on ATK% and Crit. At B6, his Crit Rate is naturally capped, making ATK% optimal as the Stamp II main stat.' },
+  white_ichigo: { fr: '⚠️ Ultimate Charge Rate % minimum 135%. À A5, le Stamp II passe en Crit DMG et le poids du Crit Rate descend à 0.6.', en: '⚠️ Ultimate Charge Rate % minimum 135%. At A5, Stamp II switches to Crit DMG and the Crit Rate weight drops to 0.6.' }
 };
 
 const CHAR_PASSIVES = {
@@ -357,6 +367,10 @@ const CHAR_PASSIVES = {
   soifon: {
     recommended: ["Enhanced Battlefield Skill II", "Overdrive - Tactic"],
     note: null
+  },
+  white_ichigo: {
+    recommended: [],
+    note: { fr: "⚠️ Ultimate Charge Rate % 135% minimum.", en: "⚠️ Ultimate Charge Rate % 135% minimum." }
   },
 };
 
