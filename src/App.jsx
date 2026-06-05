@@ -1167,8 +1167,8 @@ export default function App() {
                         </div>
                         <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>
                           <select value={st.mainStat} onChange={e => setSetStamps(prev => ({...prev, [slotKey]: {...prev[slotKey], mainStat: e.target.value}}))} style={{ flex: 1, minWidth: 120, background: t.input, border: `1px solid ${t.inputBorder}`, borderRadius: 8, padding: "6px 8px", color: st.mainStat ? t.text : t.text3, fontSize: 11, fontFamily: "'Outfit'", outline: "none", appearance: "none", cursor: "pointer" }}>
-                            <option value="">{L.mainStat}</option>
-                            {sd.main_stats.map(s => <option key={s} value={s}>{s}</option>)}
+                            <option value="" style={{ background: t.sel }}>{L.mainStat}</option>
+                            {sd.main_stats.map(s => <option key={s} value={s} style={{ background: t.sel }}>{s}</option>)}
                           </select>
                           {mc === "bis" && <span style={{ fontSize: 9, padding: "3px 8px", borderRadius: 6, background: "rgba(52,199,89,0.12)", color: "#34c759", fontWeight: 800, fontFamily: "'Outfit'", alignSelf: "center" }}>✓ BiS</span>}
                           {mc === "off" && <span style={{ fontSize: 9, padding: "3px 8px", borderRadius: 6, background: "rgba(255,149,0,0.10)", color: "#ff9500", fontWeight: 800, fontFamily: "'Outfit'", alignSelf: "center" }}>Off</span>}
@@ -1176,8 +1176,8 @@ export default function App() {
                         <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
                           {st.substats.map((sub, i) => (
                             <select key={i} value={sub} onChange={e => { const n = [...st.substats]; n[i] = e.target.value; setSetStamps(prev => ({...prev, [slotKey]: {...prev[slotKey], substats: n}})); }} style={{ flex: 1, minWidth: 80, background: t.input, border: `1px solid ${t.inputBorder}`, borderRadius: 8, padding: "6px 4px", color: sub ? t.text : t.text3, fontSize: 10, fontFamily: "'Outfit'", outline: "none", appearance: "none", cursor: "pointer" }}>
-                              <option value="">Sub {i+1}</option>
-                              {ALL_SUBSTATS.filter(s => !st.substats.filter((x,j) => j!==i && x).includes(s)).map(s => <option key={s} value={s}>{s}</option>)}
+                              <option value="" style={{ background: t.sel }}>Sub {i+1}</option>
+                              {ALL_SUBSTATS.filter(s => !st.substats.filter((x,j) => j!==i && x).includes(s)).map(s => <option key={s} value={s} style={{ background: t.sel }}>{s}</option>)}
                             </select>
                           ))}
                         </div>
