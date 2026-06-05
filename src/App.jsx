@@ -370,7 +370,7 @@ const CHAR_PASSIVES = {
     note: null
   },
   white_ichigo: {
-    recommended: [],
+    recommended: ["Overdrive - Tactic", "Enhanced Damage", "Enhanced Battlefield Skill II", "Enhanced Battlefield Skill"],
     note: { fr: "⚠️ Ultimate Charge Rate % 135% minimum.", en: "⚠️ Ultimate Charge Rate % 135% minimum." }
   },
 };
