@@ -1,7 +1,7 @@
-# ⚔️ BSR Set Stamp Rater
+# ⚔️ BSR Toolkit
 
-Outil d'évaluation des Set Stamps pour **Bleach: Soul Resonance**.
-Analysez vos substats, comparez vos stamps et optimisez vos builds.
+Boîte à outils pour **Bleach: Soul Resonance** — refonte complète du [BSR Set Stamp Rater](https://github.com/Gota5754/BSR-Stamp-Rater).
+Analysez vos Set Stamps, consultez la tier list et planifiez vos ressources.
 
 🌐 **Disponible en Français et Anglais**
 
@@ -9,77 +9,66 @@ Analysez vos substats, comparez vos stamps et optimisez vos builds.
 
 ## Fonctionnalités
 
-### 🎯 Évaluation des Stamps
-- **13 personnages** avec poids de stats personnalisés (+ Mayuri en Coming Soon)
+### ⚔️ Stamp Rater
+- **30+ personnages** (SSR / SR+ / SR) avec poids de substats personnalisés
 - Évaluation des **3 pièces** (Stamp I, II, III) avec scoring de **SSS à F**
-- **Main stats recommandées** par personnage et par pièce
-- Indicateur **BiS / Off** sur la main stat sélectionnée
+- **Main stats recommandées** par personnage et par pièce, indicateur **BiS / Off**
+- **Procs Niv 10/15/20** pris en compte dans le score
+- **Passifs 6★** recommandés avec priorité et tooltips
+- **Boundary Ascension** : overrides dynamiques par perso (B1/B2/B4/B6)
+- **Niveaux d'arme (A1-A5)** et **passifs de perso** qui ajustent les poids
+- **Mode Comparaison** Stamp A vs Stamp B
+- Guides par personnage expliquant le "pourquoi" des priorités
 
-### 🔄 Système de Procs
-- Sélection des procs de **Niv 10, 15 et 20**
-- Le scoring prend en compte les substats qui ont proc
-- Niv 25 : toutes les substats reçoivent un proc (inclus dans le calcul)
+### 📊 Tier List
+- Tier list SS → D basée sur le méta actuel (B6/A5/CS5)
 
-### ⭐ Passifs 6★
-- Sélection du passif d'évolution pour chaque stamp
-- **Passifs recommandés par personnage** avec priorité (★★★ / ★★ / ★ / ☆)
-- Impact direct sur la note finale
-- Notes spéciales (ex: Kisuke 3x Invigorate, Ikkaku/Komamura à ne pas 6★)
-
-### 🔀 Boundary Ascension
-- Overrides dynamiques par personnage (B1, B2, B4, B6 selon le perso)
-- Ajuste automatiquement les **poids des substats** et les **stats recommandées**
-- Exemples : Aizen B6 → Crit DMG prioritaire en Stamp II, Nelliel B2 → Crit Rate prioritaire, Nelliel B4 → Crit DMG repasse devant
-
-### ⇔ Mode Comparaison
-- Comparez **Stamp A vs Stamp B** côte à côte
-- Affichage du gagnant avec le score
-
-### 📊 Informations par Personnage
-- **Core Stamp** et **Weapon Stamp** recommandés
-- **Guide substats** avec explication du "pourquoi" des priorités (ex: conversion Crit Rate → Crit DMG d'Ichigo)
-- Visualisation des **priorités de substats** avec barres de poids
+### 🎯 Calculateur de ressources
+- **Pulls** : cristaux, pity, estimation jusqu'à la garantie
+- **Personnage** : EXP, Kans, essences d'ascension, livres possédés
+- **Arme** : Tamahagane, or, marteaux d'ascension
+- **Compétences & passifs** : arts, omamori, Kans total
 
 ### 🎨 Interface
-- Thème **sombre / clair**
-- **Responsive mobile** (optimisé pour téléphone)
-- Langue **FR / EN** avec drapeaux
-- Portraits HD des personnages
-
----
-
-## Personnages supportés
-
-| Personnage | Type | Set BiS |
-|---|---|---|
-| Ichigo Kurosaki (Bankai) | Slash | Rising Black Moon |
-| Kisuke Urahara | Slash | Hidden Wisdom |
-| Byakuya Kuchiki | Slash | Blooming Sakura |
-| Kenpachi Zaraki | Slash | Ready to Go |
-| Toshiro Hitsugaya | Spirit | World Conquest |
-| Sosuke Aizen | Spirit | Immeasurable Gap |
-| Gin Ichimaru | Thrust | Mocking Visage |
-| Nelliel | Thrust | Knight's Anthem |
-| Ikkaku Madarame | Thrust | Unyielding Light |
-| Kaname Tosen | Thrust | Mocking Visage |
-| Yoruichi Shihoin | Strike | Shadow in Still Night |
-| Sajin Komamura | Strike | Inner Fang |
-| Mayuri Kurotsuchi | ??? | Coming Soon |
+- Thème **sombre / clair** et langue **FR / EN** mémorisés (localStorage)
+- **Responsive mobile**
+- Portraits chargés via l'API Jikan avec cache local
 
 ---
 
 ## Stack technique
 
 - **React 18** + **Vite 6**
-- Style inline dynamique (thèmes, couleurs par personnage)
-- Images embarquées en base64 (WebP)
-- Déployé sur **Vercel** avec CI/CD automatique via GitHub
+- CSS natif avec variables de thème (plus de styles inline géants)
+- Données du jeu isolées dans `src/data/` — faciles à mettre à jour
+- Logique de scoring testable dans `src/lib/scoring.js`
+
+## Développement
+
+```bash
+npm install
+npm run dev     # serveur de dev
+npm run build   # build de production
+```
+
+## Structure
+
+```
+src/
+├── data/          # personnages, poids, tier list, coûts de ressources
+├── lib/scoring.js # calcul des scores et rangs
+├── hooks/         # localStorage, chargement des portraits
+├── components/    # StampRater, TierList, ResourceCalc, etc.
+└── i18n.js        # traductions FR/EN
+```
 
 ---
 
 ## Contribuer
 
-Les retours sur les poids des stats sont les bienvenus ! Si vous avez des suggestions de personnages à ajouter ou des ajustements à proposer, ouvrez une issue ou contactez-moi sur Discord @Gota57
+Les retours sur les poids des stats sont les bienvenus ! Ouvrez une issue ou contactez-moi sur Discord **@Gota57**.
+
+Données de ressources basées sur bsr-calculator.vercel.app — crédits : @enveelive, @Ganxo012, @Joker.
 
 ---
 

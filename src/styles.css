@@ -1,0 +1,229 @@
+/* ─── THEMES ─────────────────────────────────────────────────────────── */
+:root, [data-theme="dark"] {
+  --bg: #08080e;
+  --card: rgba(16, 16, 28, 0.88);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --text: #eaeaef;
+  --text2: rgba(255, 255, 255, 0.5);
+  --text3: rgba(255, 255, 255, 0.22);
+  --input: rgba(255, 255, 255, 0.04);
+  --input-border: rgba(255, 255, 255, 0.08);
+  --sel: #10101a;
+  --div: rgba(255, 255, 255, 0.05);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --accent: #ff9500;
+}
+[data-theme="light"] {
+  --bg: #f0f0f5;
+  --card: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(0, 0, 0, 0.07);
+  --text: #1c1c1e;
+  --text2: rgba(0, 0, 0, 0.5);
+  --text3: rgba(0, 0, 0, 0.28);
+  --input: rgba(0, 0, 0, 0.03);
+  --input-border: rgba(0, 0, 0, 0.08);
+  --sel: #fff;
+  --div: rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Outfit", -apple-system, sans-serif;
+  transition: background 0.4s, color 0.3s;
+}
+.mono { font-family: "Space Mono", monospace; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+@keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.fadein { animation: fadein 0.4s ease; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────── */
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px 60px; }
+.glow {
+  position: fixed; top: -100px; right: -100px; width: 60vw; height: 60vh;
+  pointer-events: none; transition: background 0.6s;
+}
+
+.header { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; padding-bottom: 4px; }
+.header .kicker { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--text3); font-weight: 700; }
+.header h1 { font-size: 28px; font-weight: 900; margin: 4px 0 0; letter-spacing: -1px; }
+.header-btns { display: flex; gap: 8px; }
+.icon-btn {
+  width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--card-border);
+  background: var(--input); cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+  color: var(--text); font-family: "Outfit"; font-weight: 800;
+}
+
+/* ─── TABS ───────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex; margin-top: 20px; border-bottom: 1px solid var(--div);
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.tabs button {
+  font-family: "Outfit"; font-size: 13px; font-weight: 700; padding: 12px 20px;
+  border: none; background: transparent; cursor: pointer; color: var(--text2);
+  border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; letter-spacing: 0.3px;
+}
+.tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ─── CARDS ──────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border); border-radius: 20px; box-shadow: var(--shadow);
+}
+.section-label {
+  font-size: 10px; color: var(--text3); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+
+/* ─── CHARACTER GRID ─────────────────────────────────────────────────── */
+.char-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.char-card {
+  position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4;
+  border: 1px solid var(--card-border); box-shadow: var(--shadow);
+  cursor: pointer; transition: all 0.25s ease;
+}
+.char-card:hover { transform: translateY(-4px) scale(1.02); }
+.char-card.active { border: 2.5px solid var(--cc); box-shadow: 0 4px 24px color-mix(in srgb, var(--cc) 20%, transparent), 0 0 0 1px color-mix(in srgb, var(--cc) 27%, transparent); }
+.char-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.char-card .initials { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: rgba(255, 255, 255, 0.25); letter-spacing: 4px; }
+.char-card .scrim { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4) 50%, transparent); }
+.char-card .meta { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; }
+.char-card .name { font-size: 13px; font-weight: 800; color: #fff; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); line-height: 1.2; margin-bottom: 3px; }
+.char-card .set { font-size: 9px; font-weight: 600; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.5px; }
+.char-card .rarity-badge {
+  position: absolute; top: 8px; left: 8px; font-size: 8px; font-weight: 900; letter-spacing: 1px;
+  padding: 2px 7px; border-radius: 6px; background: rgba(0, 0, 0, 0.55); color: #ffd700;
+}
+.char-card .check {
+  position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--cc); display: flex; align-items: center; justify-content: center;
+}
+
+/* ─── PILLS / CHIPS ──────────────────────────────────────────────────── */
+.pill {
+  font-family: "Outfit"; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 10px;
+  border: 1px solid var(--card-border); background: var(--input); color: var(--text2);
+  cursor: pointer; transition: all 0.2s;
+}
+.pill.active { border: 2px solid var(--cc, var(--accent)); background: color-mix(in srgb, var(--cc, var(--accent)) 8%, transparent); color: var(--cc, var(--accent)); }
+.pill.dim { opacity: 0.5; }
+
+.filter-btn {
+  font-family: "Outfit"; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 8px;
+  border: 1px solid var(--card-border); background: var(--input); color: var(--text3);
+  cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px;
+}
+.filter-btn.active { border: 2px solid var(--accent); background: rgba(255, 149, 0, 0.12); color: var(--accent); }
+
+/* ─── INPUTS ─────────────────────────────────────────────────────────── */
+.select-wrap { position: relative; flex: 1; }
+.select-wrap select {
+  width: 100%; background: var(--input); border: 1px solid var(--input-border);
+  border-radius: 10px; padding: 10px 34px 10px 12px; color: var(--text);
+  font-size: 13px; outline: none; cursor: pointer; appearance: none;
+  font-family: "Outfit", sans-serif; transition: border-color 0.2s;
+}
+.select-wrap select.empty { color: var(--text3); }
+.select-wrap select option { background: var(--sel); color: var(--text); }
+.select-wrap .chevron {
+  position: absolute; right: 11px; top: 50%; transform: translateY(-50%);
+  pointer-events: none; color: var(--text3); line-height: 0;
+}
+.num-input {
+  background: var(--input); border: 1px solid var(--card-border); border-radius: 9px;
+  padding: 9px 11px; color: var(--text); font-size: 13px; outline: none;
+  font-family: "Outfit"; width: 100%;
+}
+
+/* ─── TAGS ───────────────────────────────────────────────────────────── */
+.tag {
+  font-family: "Outfit"; font-size: 9px; padding: 3px 9px; border-radius: 6px; font-weight: 800;
+  letter-spacing: 0.5px; min-width: 40px; text-align: center; text-transform: uppercase;
+}
+.tag-bis { background: rgba(255, 45, 85, 0.12); color: #ff6b8a; border: 1px solid rgba(255, 45, 85, 0.3); }
+.tag-great { background: rgba(255, 149, 0, 0.1); color: #ff9500; border: 1px solid rgba(255, 149, 0, 0.25); }
+.tag-good { background: rgba(52, 199, 89, 0.1); color: #34c759; border: 1px solid rgba(52, 199, 89, 0.25); }
+.tag-low { background: rgba(142, 142, 147, 0.08); color: #8e8e93; border: 1px solid rgba(142, 142, 147, 0.2); }
+.tag-dead { background: rgba(72, 72, 74, 0.06); color: #636366; border: 1px solid rgba(72, 72, 74, 0.15); }
+.tag-ms-bis { font-size: 10px; padding: 4px 10px; border-radius: 8px; background: rgba(52, 199, 89, 0.12); color: #34c759; border: 1px solid rgba(52, 199, 89, 0.25); font-weight: 800; white-space: nowrap; }
+.tag-ms-off { font-size: 10px; padding: 4px 10px; border-radius: 8px; background: rgba(255, 149, 0, 0.1); color: #ff9500; border: 1px solid rgba(255, 149, 0, 0.2); font-weight: 800; white-space: nowrap; }
+
+/* ─── TOOLTIP ────────────────────────────────────────────────────────── */
+.tooltip-wrap { position: relative; }
+.tooltip {
+  display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: #1c1c2a; color: #eaeaef; font-size: 11px; font-family: "Outfit";
+  padding: 7px 11px; border-radius: 8px; white-space: nowrap; z-index: 30;
+  border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+.tooltip-wrap:hover .tooltip { display: block; }
+
+/* ─── STAMP CARDS ────────────────────────────────────────────────────── */
+.stamp-cards { display: flex; gap: 16px; flex-wrap: wrap; }
+.stamp-card { padding: 24px; flex: 1; min-width: 280px; position: relative; overflow: hidden; transition: all 0.35s ease; }
+.stamp-card.winner { border: 2px solid color-mix(in srgb, var(--cc) 40%, transparent); box-shadow: 0 0 40px color-mix(in srgb, var(--cc) 8%, transparent), var(--shadow); }
+.stamp-card .topline { position: absolute; top: 0; left: 20px; right: 20px; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--cc) 27%, transparent), transparent); }
+.winner-badge {
+  position: absolute; top: 14px; right: 14px; background: var(--cc); color: #fff;
+  font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 8px;
+  letter-spacing: 1px; animation: pulse 2s infinite;
+}
+
+/* ─── WEIGHT BARS ────────────────────────────────────────────────────── */
+.wbar { display: flex; align-items: center; gap: 10px; }
+.wbar .stat { width: 140px; font-size: 12px; color: var(--text2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wbar .stat.dead { color: var(--text3); }
+.wbar .track { flex: 1; height: 5px; background: var(--div); border-radius: 3px; overflow: hidden; }
+.wbar .fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.wbar .val { width: 28px; text-align: right; font-size: 11px; font-weight: 700; }
+
+/* ─── TIER LIST ──────────────────────────────────────────────────────── */
+.tier-row { display: flex; align-items: stretch; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border); }
+.tier-label {
+  width: 52px; min-width: 52px; display: flex; align-items: center; justify-content: center;
+  font-family: "Space Mono", monospace; font-size: 20px; font-weight: 700; color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.tier-chars { flex: 1; background: var(--card); display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; align-items: center; min-height: 72px; }
+.tier-char { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.tier-char .avatar { width: 48px; height: 48px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; }
+.tier-char .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.tier-char .avatar .initials { display: flex; align-items: center; justify-content: center; height: 100%; font-weight: 900; color: rgba(255, 255, 255, 0.5); font-size: 11px; }
+.tier-char .label { font-size: 8px; color: var(--text3); font-weight: 600; text-align: center; max-width: 52px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── RESOURCE CALC ──────────────────────────────────────────────────── */
+.section-card { border-radius: 14px; overflow: hidden; margin-bottom: 12px; }
+.section-card > button {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; background: transparent; border: none; cursor: pointer;
+  font-family: "Outfit"; font-size: 13px; font-weight: 800; color: var(--text2);
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.section-card .body { padding: 0 18px 16px; }
+.stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.stat-row .label { font-size: 12px; color: var(--text2); min-width: 170px; font-weight: 500; }
+.stat-row input { width: 72px; background: var(--input); border: 1px solid var(--card-border); border-radius: 7px; padding: 4px 6px; color: var(--text); font-size: 11px; outline: none; font-family: "Outfit"; text-align: right; }
+.divider { height: 1px; background: var(--div); margin: 10px 0; }
+.input-label { font-family: "Outfit"; font-size: 9px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; display: block; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────── */
+.footer { text-align: center; margin-top: 48px; padding: 24px 16px 0; border-top: 1px solid var(--div); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .char-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stamp-cards { flex-direction: column; }
+  .header h1 { font-size: 22px; }
+  .tooltip-wrap:active .tooltip { display: block; }
+  .stat-row .label { min-width: 110px; font-size: 11px; }
+}
+@media (max-width: 400px) {
+  .char-grid { grid-template-columns: repeat(2, 1fr); }
+}
