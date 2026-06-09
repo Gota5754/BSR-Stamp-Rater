@@ -3,6 +3,8 @@ import { useState } from "react";
 // ─── ROTATION DATA ───────────────────────────────────────────────────────────
 // Ajouter une rotation : déposer l'image dans public/rotations/ puis ajouter
 // une entrée ici. L'UI (cartes + zoom plein écran) se génère automatiquement.
+const CREDIT = { label: "@Bleached_BSR", url: "https://x.com/Bleached_BSR" };
+
 const ROTATIONS = [
   {
     id: "thrust",
@@ -12,7 +14,17 @@ const ROTATIONS = [
     start: { fr: "Démarrer avec Soi Fon", en: "Start w/ Soi Fon" },
     image: "/rotations/thrust.jpg",
     accent: "#0096c7",
-    credit: null, // ex: { label: "@compteX", url: "https://x.com/..." }
+    credit: CREDIT,
+  },
+  {
+    id: "spirit",
+    title: { fr: "Team Spirit", en: "Spirit Team" },
+    team: ["toshiro", "aizen", "szayelaporro"],
+    teamLabel: "Toshiro • Aizen • Szayelaporro",
+    start: { fr: "Démarrer avec Toshiro", en: "Start w/ Toshiro" },
+    image: "/rotations/spirit.jpg",
+    accent: "#9b59b6",
+    credit: CREDIT,
   },
 ];
 
@@ -142,10 +154,20 @@ export default function RotationGuide({ characters, images, t, lang }) {
         <RotationCard key={rot.id} rot={rot} characters={characters} images={images} t={t} lang={lang} onZoom={setZoomed} />
       ))}
 
-      <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, textAlign: "center", marginTop: 20, fontStyle: "italic", lineHeight: 1.7 }}>
+      <div style={{
+        fontFamily: "'Outfit'", fontSize: 11, color: "#ff9500", textAlign: "center",
+        marginTop: 16, lineHeight: 1.6, padding: "10px 16px", borderRadius: 10,
+        background: "rgba(255,149,0,0.07)", border: "1px solid rgba(255,149,0,0.2)",
+      }}>
+        ⚠️ {lang === "fr"
+          ? "Rotations données à titre indicatif — elles peuvent comporter des erreurs."
+          : "Rotations are provided as a guideline — they may contain errors."}
+      </div>
+
+      <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, textAlign: "center", marginTop: 14, fontStyle: "italic", lineHeight: 1.7 }}>
         {lang === "fr"
-          ? "D'autres rotations arrivent bientôt (Slash, Spirit, Strike…)"
-          : "More rotations coming soon (Slash, Spirit, Strike…)"}
+          ? "D'autres rotations arrivent bientôt (Slash, Strike…)"
+          : "More rotations coming soon (Slash, Strike…)"}
       </div>
 
       {zoomed && <Lightbox src={zoomed.image} alt={zoomed.title[lang]} onClose={() => setZoomed(null)} />}
