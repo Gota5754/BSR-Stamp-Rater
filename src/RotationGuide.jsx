@@ -7,8 +7,8 @@ const CREDIT = { label: "@Bleached_BSR", url: "https://x.com/Bleached_BSR" };
 
 const ROTATIONS = [
   {
-    id: "thrust",
-    title: { fr: "Team Thrust", en: "Thrust Team" },
+    id: "Strike",
+    title: { fr: "Team Strike", en: "Strike Team" },
     team: ["grimmjow_pantera", "soifon", "mayuri"],
     teamLabel: "Grimmjow • Soi Fon • Mayuri",
     start: { fr: "Démarrer avec Soi Fon", en: "Start w/ Soi Fon" },
@@ -166,8 +166,8 @@ export default function RotationGuide({ characters, images, t, lang }) {
 
       <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, textAlign: "center", marginTop: 14, fontStyle: "italic", lineHeight: 1.7 }}>
         {lang === "fr"
-          ? "D'autres rotations arrivent bientôt (Slash, Strike…)"
-          : "More rotations coming soon (Slash, Strike…)"}
+          ? "D'autres rotations arrivent bientôt (Slash, Thrust…)"
+          : "More rotations coming soon (Slash, Thrust…)"}
       </div>
 
       {zoomed && <Lightbox src={zoomed.image} alt={zoomed.title[lang]} onClose={() => setZoomed(null)} />}
