@@ -10,7 +10,7 @@ const ROTATIONS = [
     team: ["grimmjow_pantera", "soifon", "mayuri"],
     teamLabel: "Grimmjow • Soi Fon • Mayuri",
     start: { fr: "Démarrer avec Soi Fon", en: "Start w/ Soi Fon" },
-    image: "/rotations/thrust.png",
+    image: "/rotations/thrust.jpg",
     accent: "#0096c7",
     credit: null, // ex: { label: "@compteX", url: "https://x.com/..." }
   },
