@@ -2,6 +2,31 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import TierList from "./TierList";
 import ResourceCalc from "./ResourceCalc";
 import RotationGuide from "./RotationGuide";
+import TeamBuilder from "./TeamBuilder";
+
+// ─── PERSISTANCE (localStorage) ─────────────────────────────────────────
+function loadPref(key, fallback) {
+  try {
+    const v = localStorage.getItem("bsr_" + key);
+    return v === null ? fallback : JSON.parse(v);
+  } catch { return fallback; }
+}
+function savePref(key, value) {
+  try { localStorage.setItem("bsr_" + key, JSON.stringify(value)); } catch { /* mode privé */ }
+}
+
+// ─── PARTAGE DE BUILD (encodage URL) ────────────────────────────────────
+function encodeBuild(charId, slot, stamp, ov) {
+  try {
+    const payload = { c: charId, s: slot, m: stamp.mainStat, sb: stamp.substats, p: stamp.procs, pa: stamp.passive, o: ov };
+    return btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  } catch { return ""; }
+}
+function decodeBuild(str) {
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(str))));
+  } catch { return null; }
+}
 
 // ─── EMBEDDED CHARACTER IMAGES (base64) ─────────────────────────────────
 const EMBEDDED_IMAGES = {
@@ -472,6 +497,7 @@ const LANG = {
     tie: "Égalité parfaite !",
     core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
     lvl: "Niv", passive_title: "Passif 6★", passive_none: "— Aucun passif —", _lang: "fr", pick_char: "Choisis un personnage pour commencer", filter_all: "Tous", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Score du Set complet", full_set_btn: "📊 Set complet", full_set_close: "Retour au stamp", full_set_avg: "Moyenne", full_set_rank: "Rank du Set", support_text: "Soutenir le projet", support_footer: "Si cet outil vous est utile, pensez à soutenir le développeur", weapon_level: "Weapon Stamp", passive_level: "Passif", coming_data: "Données à venir",
+    search: "Rechercher un personnage…", no_results: "Aucun personnage trouvé", share: "Partager", copied: "Copié !", crit_tip: "Ce perso veut un max de Crit Rate : empile-le en priorité avant le Crit DMG pour fiabiliser tes crits, puis équilibre les deux.", credits: "Crédits", credits_rot: "rotations", credits_res: "ressources", tb_team: "Ton équipe (3 persos)", tb_pick: "Choisis tes personnages", tb_disclaimer: "Analyse de synergie indicative — la composition optimale dépend de ton roster et du contenu visé.",
   },
   en: {
     character: "Character", piece: "Piece", recommended: "Recommended",
@@ -486,6 +512,7 @@ const LANG = {
     tie: "Perfect tie!",
     core_stamp: "Core Stamp", weapon_stamp: "Weapon Stamp",
     lvl: "Lv", passive_title: "6★ Passive", passive_none: "— No passive —", _lang: "en", pick_char: "Pick a character to get started", filter_all: "All", filter_ssr: "SSR", filter_sr: "SR", wip: "WIP", full_set: "Full Set Score", full_set_btn: "📊 Full Set", full_set_close: "Back to stamp", full_set_avg: "Average", full_set_rank: "Set Rank", support_text: "Support the project", support_footer: "If this tool is useful to you, consider supporting the developer", weapon_level: "Weapon Stamp", passive_level: "Passive", coming_data: "Data coming soon",
+    search: "Search a character…", no_results: "No character found", share: "Share", copied: "Copied!", crit_tip: "This character wants lots of Crit Rate: stack it first before Crit DMG to make your crits reliable, then balance both.", credits: "Credits", credits_rot: "rotations", credits_res: "resources", tb_team: "Your team (3 units)", tb_pick: "Pick your characters", tb_disclaimer: "Synergy analysis is indicative — the optimal comp depends on your roster and the content you target.",
   }
 };
 
@@ -898,15 +925,29 @@ function WBar({ stat, weight, max, cc, t }) {
 
 // ─── APP ─────────────────────────────────────────────────────────────────
 export default function App() {
-  const [mode, setMode] = useState("dark");
-  const [lang, setLang] = useState("fr");
-  const [activeTab, setActiveTab] = useState("rater");
+  const [mode, setMode] = useState(() => loadPref("mode", "dark"));
+  const [lang, setLang] = useState(() => loadPref("lang", "fr"));
+  const [activeTab, setActiveTab] = useState(() => loadPref("tab", "rater"));
   const [rarityFilter, setRarityFilter] = useState("all");
+  const [search, setSearch] = useState("");
+  const [copied, setCopied] = useState(false);
+  const pendingShare = useRef(null);
   const [fullSetMode, setFullSetMode] = useState(false);
   const [setStamps, setSetStamps] = useState({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } });
   const L = LANG[lang];
   const builderRef = useRef(null);
-  const [charId, setCharId] = useState("");
+  // Initialise depuis un lien de partage (?b=...) si présent, sinon localStorage
+  const [charId, setCharId] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const b = params.get("b");
+      if (b) {
+        const data = decodeBuild(b);
+        if (data && data.c) { pendingShare.current = data; return data.c; }
+      }
+    } catch { /* ignore */ }
+    return loadPref("charId", "");
+  });
   const [slot, setSlot] = useState("piece_1");
   const [ov, setOv] = useState({});
   const [cmp, setCmp] = useState(false);
@@ -924,7 +965,34 @@ export default function App() {
   const t = T[mode];
   const ch = CHARACTERS.find(c => c.id === charId) || null;
 
-  useEffect(() => { if (charId && builderRef.current) { setTimeout(() => builderRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 100); } setSlotData(emptySlots()); setOv({}); setFullSetMode(false); setSetStamps({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } }); setSlot("piece_1"); setWeaponLv(""); setPassiveLv(""); }, [charId]);
+  useEffect(() => {
+    if (charId && builderRef.current) { setTimeout(() => builderRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 100); }
+    setOv({}); setFullSetMode(false); setSetStamps({ piece_1: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_2: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" }, piece_3: { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" } });
+    setWeaponLv(""); setPassiveLv("");
+    // Si on ouvre via un lien de partage, on restaure le build au lieu de vider
+    const share = pendingShare.current;
+    if (share && share.c === charId) {
+      const blank = { mainStat: "", substats: ["", "", "", ""], procs: ["", "", ""], passive: "" };
+      const restored = { mainStat: share.m || "", substats: share.sb || ["", "", "", ""], procs: share.p || ["", "", ""], passive: share.pa || "" };
+      setSlotData({
+        piece_1: { a: share.s === "piece_1" ? restored : { ...blank }, b: { ...blank } },
+        piece_2: { a: share.s === "piece_2" ? restored : { ...blank }, b: { ...blank } },
+        piece_3: { a: share.s === "piece_3" ? restored : { ...blank }, b: { ...blank } },
+      });
+      setSlot(share.s || "piece_1");
+      if (share.o) setOv(share.o);
+      pendingShare.current = null;
+    } else {
+      setSlotData(emptySlots());
+      setSlot("piece_1");
+    }
+  }, [charId]);
+
+  // Persistance des préférences
+  useEffect(() => { savePref("mode", mode); }, [mode]);
+  useEffect(() => { savePref("lang", lang); }, [lang]);
+  useEffect(() => { savePref("tab", activeTab); }, [activeTab]);
+  useEffect(() => { savePref("charId", charId); }, [charId]);
 
   const w = useMemo(() => ch ? getEffectiveWeights(ch, ov, weaponLv, passiveLv) : {}, [ch, ov, weaponLv, passiveLv]);
   const scA = useMemo(() => ch ? calcScore(sA.substats, w, sA.procs, sA.passive, ch.id) : 0, [sA, w, ch]);
@@ -955,6 +1023,13 @@ export default function App() {
             <a href="https://ko-fi.com/gota574" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Outfit'", fontSize: 10, color: t.text3, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4, marginTop: 4, transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#ff5e5b"} onMouseLeave={e => e.target.style.color = t.text3}>☕ {L.support_text}</a>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
+            {activeTab === "rater" && ch && (
+              <button onClick={() => {
+                const url = `${window.location.origin}${window.location.pathname}?b=${encodeBuild(charId, slot, sA, ov)}`;
+                const done = () => { setCopied(true); setTimeout(() => setCopied(false), 1800); };
+                if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(done); else done();
+              }} title={L.share} style={{ height: 44, padding: "0 14px", borderRadius: 12, border: `1px solid ${copied ? "#34c759" : t.cardBorder}`, background: copied ? "rgba(52,199,89,0.12)" : t.input, cursor: "pointer", fontSize: 13, fontWeight: 800, fontFamily: "'Outfit'", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 0.3s", color: copied ? "#34c759" : t.text2 }}>{copied ? `✓ ${L.copied}` : `🔗 ${L.share}`}</button>
+            )}
             <button onClick={() => setLang(l => l === "fr" ? "en" : "fr")} style={{ height: 44, padding: "0 14px", borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 13, fontWeight: 800, fontFamily: "'Outfit'", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 0.3s", color: t.text2 }}><img src={lang === "fr" ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect fill='%23002395' width='300' height='600'/%3E%3Crect fill='%23fff' x='300' width='300' height='600'/%3E%3Crect fill='%23ED2939' x='600' width='300' height='600'/%3E%3C/svg%3E" : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E"} alt="" style={{ width: 20, height: 14, borderRadius: 2, objectFit: "cover" }} />{lang === "fr" ? "FR" : "EN"}</button>
             <button onClick={() => setMode(m => m === "dark" ? "light" : "dark")} style={{ width: 44, height: 44, borderRadius: 12, border: `1px solid ${t.cardBorder}`, background: t.input, cursor: "pointer", fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>{t.icon}</button>
           </div>
@@ -964,6 +1039,7 @@ export default function App() {
         <div style={{ display: "flex", gap: 0, marginTop: 20, borderBottom: `1px solid ${t.div}`, overflowX: "auto", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
           {[
             { id: "rater",     icon: "⚔️", fr: "Stamp Rater", en: "Stamp Rater" },
+            { id: "teams",     icon: "🛡️", fr: "Équipes",     en: "Teams"       },
             { id: "tierlist",  icon: "📊", fr: "Tier List",   en: "Tier List"   },
             { id: "resources", icon: "🎯", fr: "Ressources",  en: "Resources"   },
             { id: "rotation",  icon: "🔄", fr: "Rotation",    en: "Rotation"    },
@@ -1002,11 +1078,26 @@ export default function App() {
               })}
             </div>
           </div>
-          <div className="bsr-charGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 }}>
-            {CHARACTERS.filter(c => rarityFilter === "all" || c.rarity === rarityFilter).map(c => (
-              <CharCard key={c.id} character={c} isActive={charId === c.id} onClick={() => setCharId(c.id)} imgUrl={images[c.id]} t={t} />
-            ))}
+          <div style={{ position: "relative", marginBottom: 12 }}>
+            <input value={search} onChange={e => setSearch(e.target.value)} placeholder={L.search}
+              style={{ width: "100%", boxSizing: "border-box", background: t.input, border: `1px solid ${t.cardBorder}`, borderRadius: 12, padding: "10px 36px 10px 38px", color: t.text, fontSize: 13, fontFamily: "'Outfit'", outline: "none" }} />
+            <span style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", fontSize: 13, opacity: 0.5, pointerEvents: "none" }}>🔍</span>
+            {search && <button onClick={() => setSearch("")} style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", background: "none", border: "none", color: t.text3, cursor: "pointer", fontSize: 14 }}>✕</button>}
           </div>
+          {(() => {
+            const list = CHARACTERS.filter(c =>
+              (rarityFilter === "all" || c.rarity === rarityFilter) &&
+              (!search.trim() || (c.name + " " + (c.subtitle || "")).toLowerCase().includes(search.trim().toLowerCase()))
+            );
+            if (list.length === 0) return <div style={{ fontFamily: "'Outfit'", fontSize: 13, color: t.text3, textAlign: "center", padding: "24px 0", fontStyle: "italic" }}>{L.no_results}</div>;
+            return (
+              <div className="bsr-charGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 }}>
+                {list.map(c => (
+                  <CharCard key={c.id} character={c} isActive={charId === c.id} onClick={() => setCharId(c.id)} imgUrl={images[c.id]} t={t} />
+                ))}
+              </div>
+            );
+          })()}
         </div>
 
         <div ref={builderRef} />
@@ -1225,6 +1316,11 @@ export default function App() {
                   <WBar key={s} stat={s} weight={wt} max={mx} cc={ch.color} t={t} />
                 ))}
               </div>
+              {(w["Crit Rate %"] || 0) >= 0.9 && (
+                <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 12, background: "rgba(255,45,85,0.07)", border: "1px solid rgba(255,45,85,0.2)", fontFamily: "'Outfit'", fontSize: 11, color: "#ff6b8a", lineHeight: 1.5 }}>
+                  💥 {L.crit_tip}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -1241,6 +1337,7 @@ export default function App() {
 
         </>)}
 
+        {activeTab === "teams"     && <TeamBuilder  characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
         {activeTab === "tierlist"  && <TierList     characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
         {activeTab === "resources" && <ResourceCalc  characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
         {activeTab === "rotation"  && <RotationGuide characters={CHARACTERS} images={images} t={t} lang={lang} L={L} />}
@@ -1248,7 +1345,13 @@ export default function App() {
         <div style={{ textAlign: "center", marginTop: 48, padding: "24px 16px", borderTop: `1px solid ${t.div}` }}>
           <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, marginBottom: 10 }}>{L.support_footer}</div>
           <a href="https://ko-fi.com/gota574" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 24px", borderRadius: 12, background: "#ff5e5b", color: "#fff", fontFamily: "'Outfit'", fontSize: 13, fontWeight: 800, textDecoration: "none", letterSpacing: 0.5, transition: "transform 0.2s, box-shadow 0.2s", boxShadow: "0 4px 16px rgba(255,94,91,0.3)" }} onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(255,94,91,0.4)"; }} onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(255,94,91,0.3)"; }}>☕ {L.support_text} — Ko-fi</a>
-          <div style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text3, marginTop: 12, letterSpacing: 2 }}>BSR SET STAMP RATER v5.0 — Fan-made tool</div>
+          <div style={{ fontFamily: "'Outfit'", fontSize: 11, color: t.text3, marginTop: 16, lineHeight: 1.8 }}>
+            <div>💬 Discord : <strong style={{ color: t.text2 }}>@Gota57</strong></div>
+            <div style={{ marginTop: 4 }}>
+              {L.credits} · <a href="https://x.com/Bleached_BSR" target="_blank" rel="noopener noreferrer" style={{ color: t.text2 }}>@Bleached_BSR</a> ({L.credits_rot}) · <a href="https://bsr-calculator.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: t.text2 }}>bsr-calculator</a> ({L.credits_res})
+            </div>
+          </div>
+          <div style={{ fontFamily: "'Outfit'", fontSize: 9, color: t.text3, marginTop: 14, letterSpacing: 2 }}>BSR SET STAMP RATER v5.1 — Fan-made tool</div>
         </div>
       </div>
     </div>
