@@ -2,6 +2,7 @@
 // Modifier les placements ici pour mettre à jour la tier list
 const TIER_LIST_DATA = {
   tiers: [
+    { id: "GOD", color: "#8A2BE2" },
     { id: "SS", color: "#ff2d55" },
     { id: "S",  color: "#ff9500" },
     { id: "A",  color: "#ffd700" },
@@ -10,6 +11,7 @@ const TIER_LIST_DATA = {
     { id: "D",  color: "#8e8e93" },
   ],
   placements: {
+    GOD: ["ulquiorra"],
     SS: ["aizen", "nelliel"],
     S:  ["grimmjow_pantera", "szayelaporro", "mayuri", "soifon", "gin"],
     A:  ["toshiro", "kenpachi", "kisuke"],
