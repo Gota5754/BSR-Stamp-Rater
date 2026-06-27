@@ -313,12 +313,12 @@ const CHARACTERS = [
     coming_soon: false
   },
   {
-    id: "ulquiorra", rarity: "SSR", name: "Ulquiorra Cifer", subtitle: null, set_bis: "???", initials: "UC",
+    id: "ulquiorra", rarity: "SSR", name: "Ulquiorra Cifer", subtitle: null, set_bis: "Fill The Nothingness", initials: "UC",
     color: "#16a085", gradient: "linear-gradient(135deg, #16a085, #0b3d2e)", mal_id: 1546,
-    recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %"], piece_3: ["ATK %"] },
+    recommended_main_stats: { piece_1: ["Spirit DMG %", "ATK %"], piece_2: ["Crit Rate %"], piece_3: ["Ultimate Charge Rate %"] },
     weights: { "Crit Rate %": 2.0, "Crit DMG %": 0.6, "ATK %": 0.6, "Ultimate Charge Rate %": 0.6, "ATK": 0.3, "HP %": 0.1, "DEF %": 0.1, "HP": 0, "DEF": 0, "Ailment Bonus %": 0 },
-    core_stamp: "???", weapon_stamp: "???",
-    overrides: null,
+    core_stamp: "Forbidden Beneath The Heavens", weapon_stamp: "An Unseen Form",
+    overrides: [{ id: "a5_active", label: "Arme A5", changes: { "Ultimate Charge Rate %": 0.3 }, rec_override: { piece_3: ["ATK %"] } }],
     coming_soon: false
   }
 ];
@@ -338,7 +338,7 @@ const CHAR_GUIDES = {
   komamura: { fr: 'Komamura augmente les Crit DMG des alliés protégés par son bouclier. Son B1 renforce cet effet, rendant le Crit DMG plus précieux pour toute la team.', en: 'Komamura boosts Crit DMG of allies under his shield. His B1 strengthens this effect, making Crit DMG more valuable for the whole team.' },
   grimmjow_pantera: { fr: 'Grimmjow Pantera est un DPS Strike SSR qui scale sur l\'ATK% et le Crit. À B6, son Crit Rate est naturellement cappé, ce qui rend l\'ATK% optimal en main stat sur le Stamp II.', en: 'Grimmjow Pantera is a Strike SSR DPS who scales on ATK% and Crit. At B6, his Crit Rate is naturally capped, making ATK% optimal as the Stamp II main stat.' },
   white_ichigo: { fr: '⚠️ Ultimate Charge Rate % minimum 135%. À A5, le Stamp II passe en Crit DMG et le poids du Crit Rate descend à 0.6.', en: '⚠️ Ultimate Charge Rate % minimum 135%. At A5, Stamp II switches to Crit DMG and the Crit Rate weight drops to 0.6.' },
-  ulquiorra: { fr: '⚠️ ULTRA MAXER le Crit Rate % : c\'est de très loin sa statistique reine (poids 2.0). DPS Spirit qui scale ensuite sur le Crit DMG, l\'ATK% et l\'UCR. Le nom de son set stamp et de son arme seront ajoutés dès sa sortie.', en: '⚠️ ULTRA MAX Crit Rate %: by far his top stat (weight 2.0). Spirit DPS that then scales on Crit DMG, ATK% and UCR. His stamp set and weapon names will be added on release.' }
+  ulquiorra: { fr: '⚠️ ULTRA MAXER le Crit Rate % : c\'est de très loin sa statistique reine (poids 2.0). DPS Spirit qui scale ensuite sur le Crit DMG, l\'ATK% et l\'UCR. Stamp III : Ultimate Charge Rate par défaut ; si l\'arme An Unseen Form est A5, passe en ATK% (active le toggle « Arme A5 »).', en: '⚠️ ULTRA MAX Crit Rate %: by far his top stat (weight 2.0). Spirit DPS that then scales on Crit DMG, ATK% and UCR. Stamp III: Ultimate Charge Rate by default; if the An Unseen Form weapon is A5, switch to ATK% (enable the "Arme A5" toggle).' }
 };
 
 const CHAR_PASSIVES = {
